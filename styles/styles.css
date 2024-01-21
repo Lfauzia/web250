@@ -4,7 +4,6 @@ body{
     background-color: #F8F8F8;
 }
 
-
 .navbar {
     width: 100%;
     background-color: #FFFFFF ;
@@ -12,7 +11,6 @@ body{
   }
   
   /* Navigation links */
- 
   .navbar a {
     float: left;
     padding: 12px;
@@ -34,9 +32,21 @@ body{
     background-color: #2980b9;
   }
   
-  /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
-
   
 
-
+/* The navigation bar */
+.navbar-footer {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */ 
+    display: block; 
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px; 
+    color: #f2f2f2;
+  }
+  
+  
   
