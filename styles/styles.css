@@ -34,18 +34,22 @@ body{
   
   
 
-/* The navigation bar */
+/* bottom navigation bar with my links */
 .navbar-footer {
     overflow: hidden;
-    background-color: #333;
+    background-color: #FFFFFF;
     position: fixed; /* Set the navbar to fixed position */
     bottom: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */ 
     display: block; 
-    text-align: center;
-    text-decoration: none;
+    text-align: center; 
     padding: 14px 16px; 
     color: #f2f2f2;
+  }
+
+  .alleyoupi{
+    
+    bottom: 0;
   }
   
   
