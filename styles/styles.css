@@ -69,4 +69,14 @@ a {
   #hello{
     font-size: 19px
   }
+  #renard {
+    display: block; 
+    margin: 0 auto; 
+    max-width: 100%;
+  }
+
+  .corbeau{
+    text-align: center;
+    font-style: italic;
   
+  }
