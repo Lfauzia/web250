@@ -1,12 +1,15 @@
 /* Style the navigation menu */
 
+h1{
+    text-align: center;
+}
 body{
     background-color: #F8F8F8;
 }
 
 .navbar {
     width: 100%;
-    background-color: #FFFFFF ;
+    background-color: #95a5a6 ;
     overflow: auto;
   }
   
@@ -14,40 +17,46 @@ body{
   .navbar a {
     float: left;
     padding: 12px;
-    color: #3498db;
+    color: #000000;
     text-decoration: none;
-    font-size: 18px;
-    width: 22.8%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: center; /* If you want the text to be centered */
+    font-size: 19px;
+    width: 22.8%; /* Four equal-width links */
+    text-align: center; 
   }
   
-  /* Add a background color on mouse-over */
+  /* Add a background color on mouse-over */ 
   .navbar a:hover {
-    background-color: #95a5a6;
+    background-color: #FFFFFF;
   }
   
   /* Style the current/active link */
-
-  .navbar a.active {
-    background-color: #2980b9;
+a.active {
+    background-color: #719ab5;
   }
-  
+
+a {
+    text-decoration: none;
+    
+  }  
   
 
 /* bottom navigation bar with my links */
 .navbar-footer {
-    overflow: hidden;
+    
     background-color: #FFFFFF;
     position: fixed; /* Set the navbar to fixed position */
-    bottom: 0; /* Position the navbar at the top of the page */
+    bottom: 0; /* Position the navbar at the bottom of the page */
     width: 100%; /* Full width */ 
-    display: block; 
+    text-decoration: none;
     text-align: center; 
     padding: 14px 16px; 
-    color: #f2f2f2;
+    
   }
 
  
-  
+  main {
+    width: 60%; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the main content */
+}
   
   
