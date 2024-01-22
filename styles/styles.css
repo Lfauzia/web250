@@ -59,6 +59,14 @@ a {
   main {
     width: 60%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the main content */
+    
 }
   
+  .intro{
+    text-decoration:underline;
+   
+  }
+  #hello{
+    font-size: 19px
+  }
   
