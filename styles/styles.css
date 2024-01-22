@@ -32,25 +32,25 @@ body{
   
   /* Style the current/active link */
 a.active {
-    background-color: #719ab5;
+    background-color: #667e8e;
   }
 
 a {
     text-decoration: none;
+    color: #000000;
     
   }  
   
-
 /* bottom navigation bar with my links */
 .navbar-footer {
     
     background-color: #95a5a6 ;
     position: fixed; /* Set the navbar to fixed position */
     bottom: 0; /* Position the navbar at the bottom of the page */
-    width: 96.8%; /* Full width */ 
+    width: 96.8%;  
     text-decoration: none;
     text-align: center; 
-    padding: 14px 16px; 
+    padding: 0px 15px ; 
     overflow: auto;
     
   }
