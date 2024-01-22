@@ -62,15 +62,15 @@ a {
     
 }
   
-  .intro{
+  .intro, .web {
     text-decoration:underline;
    
   }
   #hello{
     font-size: 19px
   }
-  #renard {
-    display: block; 
+  #renard {  
+    display: block;
     margin: 0 auto; 
     max-width: 100%;
   }
@@ -80,3 +80,4 @@ a {
     font-style: italic;
   
   }
+
