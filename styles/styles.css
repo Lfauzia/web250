@@ -27,6 +27,7 @@ body{
   /* Add a background color on mouse-over */ 
   .navbar a:hover {
     background-color: #FFFFFF;
+    
   }
   
   /* Style the current/active link */
@@ -50,6 +51,7 @@ a {
     text-decoration: none;
     text-align: center; 
     padding: 14px 16px; 
+    overflow: auto;
     
   }
 
