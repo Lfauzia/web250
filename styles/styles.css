@@ -4,12 +4,12 @@ h1{
     text-align: center;
 }
 body{
-    background-color: #F8F8F8;
+    background-color: #F8F8F8; /*F8F8F8*/
 }
 
 .navbar {
     width: 100%;
-    background-color: #95a5a6 ;
+    background-color: #95a5a6 ;/* 95a5a6*/
     overflow: auto;
   }
   
