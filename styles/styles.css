@@ -43,10 +43,10 @@ a {
 /* bottom navigation bar with my links */
 .navbar-footer {
     
-    background-color: #FFFFFF;
+    background-color: #95a5a6 ;
     position: fixed; /* Set the navbar to fixed position */
     bottom: 0; /* Position the navbar at the bottom of the page */
-    width: 100%; /* Full width */ 
+    width: 96.8%; /* Full width */ 
     text-decoration: none;
     text-align: center; 
     padding: 14px 16px; 
