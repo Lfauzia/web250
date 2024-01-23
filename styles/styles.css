@@ -6,7 +6,7 @@ h1{
 body{
     background-color: #F8F8F8; /*F8F8F8*/
 }
-h2{
+h2, h4{
     text-align: center;
 }
 .navbar {
@@ -88,12 +88,11 @@ a {
 /* Container Styles */
 .container {
     background-color: #f0f0f0; /* Light background color for the container */
-    max-width: 450px; /* Adjust the maximum width of the container */
+    max-width: 550px; /* Adjust the maximum width of the container */
     margin: 50px auto; /* Center the container on the page and add top margin */
-    padding: 20px; /* Add padding inside the container */
+    padding: 10px; /* Add padding inside the container */
     text-align: center;
     margin-bottom: 20px; /* Add margin to the heading and paragraphs for spacing */
     border-radius: 50px;
     
-
 }
