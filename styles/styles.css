@@ -1,6 +1,6 @@
 /* Style the navigation menu */
 
-h1, .navbar, .container ,h2, h4{
+h1, .navbar, .container ,h2, h4,p{
     text-align: center;
     font-family: 'Trirong', serif;  
 }
