@@ -2,7 +2,9 @@
 
 h1{
     text-align: center;
+    font-family: 'Trirong', serif;   
 }
+
 body{
     background-color: #F8F8F8; /*F8F8F8*/
 }
@@ -96,3 +98,4 @@ a {
     border-radius: 50px;
     
 }
+
