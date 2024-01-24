@@ -56,11 +56,12 @@ a {
     text-decoration: none;
     padding: 0px 18px; 
     overflow: auto;
+    font-size: small;
     
   }
 
   main {
-    width: 60%; /* Adjust the width as needed */
+    width: 60%; 
     margin: 0 auto; /* Center the main content */
     
 }
