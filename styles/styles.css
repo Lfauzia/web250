@@ -1,6 +1,6 @@
 /* Style the navigation menu */
 
-h1, .navbar, .container ,h2, h4,p{
+h1, .navbar, .container ,h2, h4,p , .navbar-footer{
     text-align: center;
     font-family: 'Trirong', serif;  
 }
@@ -54,13 +54,11 @@ a {
     bottom: 0; /* Position the navbar at the bottom of the page */
     width: 96.8%;  
     text-decoration: none;
-    text-align: center; 
-    padding: 0px 15px ; 
+    padding: 0px 18px; 
     overflow: auto;
     
   }
 
- 
   main {
     width: 60%; /* Adjust the width as needed */
     margin: 0 auto; /* Center the main content */
