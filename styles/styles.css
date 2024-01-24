@@ -4,9 +4,6 @@ h1, .navbar, .container ,h2, h4, h5, p , .navbar-footer{
     text-align: center;
     font-family: 'Trirong', serif;  
 }
-h2{
-  
-}
 
 body{
     background-color: #F8F8F8; /*F8F8F8*/
@@ -32,8 +29,7 @@ body{
   /* Add a background color on mouse-over */ 
   .navbar a:hover {
     background-color: #a5babb;
-    
-    
+     
   }
   
   /* Style the current/active link */
