@@ -1,6 +1,6 @@
 /* Style the navigation menu */
 
-h1{
+h1, .navbar, .container ,h2, h4{
     text-align: center;
     font-family: 'Trirong', serif;  
 }
@@ -8,13 +8,12 @@ h1{
 body{
     background-color: #F8F8F8; /*F8F8F8*/
 }
-h2, h4{
-    text-align: center;
-}
+
 .navbar {
     width: 100%;
     background-color: #95a5a6 ;/* 95a5a6*/
     overflow: auto;
+    font-weight: 300 ;
   }
   
   /* Navigation links */
@@ -23,9 +22,8 @@ h2, h4{
     padding: 12px;
     color: #000000;
     text-decoration: none;
-    font-size: 19px;
     width: 22.8%; /* Four equal-width links */
-    text-align: center; 
+    
   }
   
   /* Add a background color on mouse-over */ 
@@ -35,7 +33,7 @@ h2, h4{
   }
   
   /* Style the current/active link */
-a.active {
+  a.active {
     background-color: #667e8e;
   }
 
@@ -90,11 +88,11 @@ a {
 /* Container Styles */
 .container {
     background-color: #f0f0f0; /* Light background color for the container */
-    max-width: 550px; /* Adjust the maximum width of the container */
-    margin: 50px auto; /* Center the container on the page and add top margin */
+    max-width: 750px; /* Adjust the maximum width of the container */
+    margin: 10px auto; /* Center the container on the page and add top margin */
     padding: 10px; /* Add padding inside the container */
     text-align: center;
-    margin-bottom: 20px; /* Add margin to the heading and paragraphs for spacing */
+    margin-bottom: 10px; /* Add margin to the heading and paragraphs for spacing */
     border-radius: 50px;
     
 }
