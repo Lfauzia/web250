@@ -4,6 +4,9 @@ h1, .navbar, .container ,h2, h4,p{
     text-align: center;
     font-family: 'Trirong', serif;  
 }
+h2{
+  
+}
 
 body{
     background-color: #F8F8F8; /*F8F8F8*/
