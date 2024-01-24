@@ -33,6 +33,7 @@ body{
   .navbar a:hover {
     background-color: #a5babb;
     
+    
   }
   
   /* Style the current/active link */
@@ -90,7 +91,7 @@ a {
 /* Container Styles */
 .container {
     background-color: #f0f0f0; /* Light background color for the container */
-    max-width: 750px; /* Adjust the maximum width of the container */
+    max-width: 850px; /* Adjust the maximum width of the container */
     margin: 10px auto; /* Center the container on the page and add top margin */
     padding: 10px; /* Add padding inside the container */
     text-align: center;
