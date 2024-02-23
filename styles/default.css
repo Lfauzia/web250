@@ -42,21 +42,21 @@ main {
 }
 
 /* Additional styles */
-.web {
-    text-decoration: underline;
+main a[href="https://lfauzia.github.io/web250/index.html"], main a[href="https://lfauzia.github.io/web215/index.html"] {
+  text-decoration: underline;
 }
 
 main > div > p:first-child {
     font-size: 19px;
 }
 
-#renard {
+main > div > figure > img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
 }
 
-.corbeau {
+main > div > figure > figcaption  {
     text-align: center;
     font-style: italic;
 }
