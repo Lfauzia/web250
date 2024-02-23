@@ -1,5 +1,5 @@
 /* Common styles for text alignment and font family */
-h1, .navbar, .container, h2, h3, h4, h5, p, footer {
+h1, header > div, .container, h2, h3, h4, h5, p, footer {
     text-align: center;
     font-family: 'Trirong', serif;
 }
@@ -11,14 +11,14 @@ a {
 }
 
 /* Navigation menu styles */
-.navbar {
+header > div {
     width: 100%;
     background-color: #95a5a6;
     overflow: auto;
     font-weight: 300;
 }
 
-.navbar a {
+header > div a {
     float: left;
     padding: 12px;
     color: #000000;
@@ -26,7 +26,7 @@ a {
     width: 22.8%;
 }
 
-.navbar a:hover {
+header > div a:hover {
     background-color: #a5babb;
 }
 
