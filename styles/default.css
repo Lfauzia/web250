@@ -1,106 +1,98 @@
-/* Style the navigation menu */
-
-h1, .navbar, .container ,h2, h4, h5, p , .navbar-footer{
+/* Common styles for text alignment and font family */
+h1, .navbar, .container, h2, h4, h5, p, .navbar-footer {
     text-align: center;
-    font-family: 'Trirong', serif;  
+    font-family: 'Trirong', serif;
 }
 
-body{
-    background-color: #F8F8F8; /*F8F8F8*/
-    margin: 0, auto; 
-
+/* Common styles for anchor tags */
+a {
+    text-decoration: none;
+    color: #000000;
 }
 
+/* Navigation menu styles */
 .navbar {
     width: 100%;
-    background-color: #95a5a6 ;/* 95a5a6*/
+    background-color: #95a5a6;
     overflow: auto;
-    font-weight: 300 ;
-  }
-  
-  /* Navigation links */
-  .navbar a {
+    font-weight: 300;
+}
+
+.navbar a {
     float: left;
     padding: 12px;
     color: #000000;
     text-decoration: none;
-    width: 22.8%; /* Four equal-width links */
-    
-  }
-  
-  /* Add a background color on mouse-over */ 
-  .navbar a:hover {
-    background-color: #a5babb;
-     
-  }
-  
-  /* Style the current/active link */
-  a.active {
-    background-color: #667e8e;
-  }
+    width: 22.8%;
+}
 
-a {
-    text-decoration: none;
-    color: #000000;
-    
-  }  
-  
-/* bottom navigation bar with my links */
+.navbar a:hover {
+    background-color: #a5babb;
+}
+
+a.active {
+    background-color: #667e8e;
+}
+
+/* Footer navigation bar styles */
 .navbar-footer {
-    
-    background-color: #95a5a6 ;
-    width: 96.8%;  
+    background-color: #95a5a6;
+    width: 96.8%;
     text-decoration: none;
-    padding: 0px 18px; 
+    padding: 0px 18px;
     overflow: auto;
     font-size: small;
-    
-  }
-
-  main {
-    width: 60%; 
-    margin: 0 auto; /* Center the main content */
-    
-    
 }
-  
-  .intro, .web {
-    text-decoration:underline;
-   
-  }
-  #hello{
-    font-size: 19px
-  }
-  #renard {  
-    display: block;
-    margin: 0 auto; 
-    max-width: 100%;
-  }
 
-  .corbeau{
+/* Main content area styles */
+main {
+    width: 60%;
+    margin: 0 auto; /* Center the main content */
+}
+
+/* Additional styles */
+.intro, .web {
+    text-decoration: underline;
+}
+
+#hello {
+    font-size: 19px;
+}
+
+#renard {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.corbeau {
     text-align: center;
-    font-style: italic; 
-  }
-.signature{
+    font-style: italic;
+}
+
+.signature {
     font-style: italic;
 }
 
 /* Container Styles */
-.container {
-    background-color: #f0f0f0; /* Light background color for the container */
-    max-width: 850px; /* Adjust the maximum width of the container */
-    margin: 10px auto; /* Center the container on the page and add top margin */
-    padding: 10px; /* Add padding inside the container */
-    text-align: center;
-    margin-bottom: 10px; /* Add margin to the heading and paragraphs for spacing */
+main > div {
+    background-color: #f0f0f0;
+    max-width: 850px;
+    margin: 10px auto; /* Center the container and add top/bottom margin */
+    padding: 10px;
     border-radius: 50px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-header, main,footer {
+/* Header */
+header {
     margin-left: auto;
     margin-right: auto;
-    max-width: 95%; /* Adjust as needed */
+    max-width: 95%;
 }
 
+/* Footer */
+footer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%;
+}
