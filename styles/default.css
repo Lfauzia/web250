@@ -1,5 +1,5 @@
 /* Common styles for text alignment and font family */
-h1, header > div, .container, h2, h3, h4, h5, p, footer {
+ header > div, .container,h1, h2, h3, h4, h5, p, footer {
     text-align: center;
     font-family: 'Trirong', serif;
 }
@@ -27,16 +27,18 @@ header > div a {
     color: #000000;
     text-decoration: none;
     width: 22.8%;
+    transition: transform 0.3s ease;
 }
 
 header > div a:hover {
-    background-color: #a5babb;
+  background-color: #8e9a9a;
+  transition: background-color 0.3s ease;
+  transform: translateY(-2px);
 }
 
 a.active {
     background-color: #667e8e;
 }
-
 
 /* Main content area styles */
 main {
@@ -48,7 +50,6 @@ main {
 main a[href="https://lfauzia.github.io/web250/index.html"], main a[href="https://lfauzia.github.io/web215/index.html"], main a[href="https://lfauzia.github.io/web250/introduction.html"] {
   text-decoration: underline;
 }
-
 
 main > div > figure > img {
     display: block;
@@ -98,3 +99,20 @@ footer {
   box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Gradient Background */
+header > div, footer {
+  background: linear-gradient(to right, #95a5a6, #7f8c8d);
+  
+}
+/* Iconography 
+header > div a::before {
+  content: "\1F4D6"; /* Unicode for a book icon */
+  /*margin-right: 5px;} * look for a better icone /
+
+  /* Responsive Design */
+@media screen and (max-width: 768px) {
+  header > div, footer {
+      padding: 15px;
+      font-size: 14px;
+  }
+}
