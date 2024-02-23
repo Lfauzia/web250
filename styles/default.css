@@ -12,14 +12,16 @@ a {
 
 /* Navigation menu styles */
 header > div {
-    width: 100%;
+  display: flex;
+  justify-content: space-between; 
+   
     background-color: #95a5a6;
     overflow: auto;
     font-weight: 300;
 }
 
 header > div a {
-    float: left;
+    
     padding: 12px;
     color: #000000;
     text-decoration: none;
@@ -34,10 +36,9 @@ a.active {
     background-color: #667e8e;
 }
 
-
 /* Main content area styles */
 main {
-    width: 60%;
+   
     margin: 0 auto; /* Center the main content */
 }
 
