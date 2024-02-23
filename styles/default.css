@@ -1,5 +1,5 @@
 /* Common styles for text alignment and font family */
-h1, .navbar, .container, h2, h4, h5, p, .navbar-footer {
+h1, .navbar, .container, h2, h3, h4, h5, p, .navbar-footer {
     text-align: center;
     font-family: 'Trirong', serif;
 }
