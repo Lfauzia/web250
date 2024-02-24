@@ -52,7 +52,9 @@ main {
 }
 
 /* Additional styles */
-main a[href="https://lfauzia.github.io/web250/index.html"], main a[href="https://lfauzia.github.io/web215/index.html"], main a[href="https://lfauzia.github.io/web250/introduction.html"] {
+main a[href="https://lfauzia.github.io/web250/index.html"], 
+main a[href="https://lfauzia.github.io/web215/index.html"], 
+main a[href="https://lfauzia.github.io/web250/introduction.html"] {
   text-decoration: underline;
 }
 
@@ -74,7 +76,7 @@ main > div > figure > figcaption  {
 /* Container Styles */
 main > div {
     background-color: #f0f0f0;
-    max-width: 850px;
+    max-width:90%;
     margin: 10px auto; /* Center the container and add top/bottom margin */
     padding: 10px;
     border-radius: 50px;
