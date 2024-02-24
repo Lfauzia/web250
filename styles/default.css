@@ -6,7 +6,7 @@
 
 body{
   font-family: 'Trirong', serif;
-    font-size: 19px;
+    font-size: 18px;
 }
 
 /* Common styles for anchor tags */
@@ -18,16 +18,15 @@ a {
 /* Navigation menu styles */
 header > div {
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between; 
   background-color: #95a5a6;
   overflow: auto;
-  font-weight: 300;
+  font-weight: 400;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     
 }
 
-header > div a {
-    
+header > div a {    
   padding: 12px 20px; 
     color: #000000;
     text-decoration: none;
