@@ -1,7 +1,12 @@
 /* Common styles for text alignment and font family */
- header > div,h1, h2, h3, h4, h5, p, footer {
+ header > div,h1, h2, h3, h4, h5,footer {
     text-align: center;
-    font-family: 'Trirong', serif;
+    
+}
+
+body{
+  font-family: 'Trirong', serif;
+    font-size: 19px;
 }
 
 /* Common styles for anchor tags */
