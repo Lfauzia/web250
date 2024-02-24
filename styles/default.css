@@ -78,7 +78,7 @@ main > div {
     background-color: #f0f0f0;
     max-width:90%;
     margin: 10px auto; /* Center the container and add top/bottom margin */
-    padding: 10px;
+    padding: 20px;
     border-radius: 50px;
 }
 
