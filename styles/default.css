@@ -124,3 +124,17 @@ header > div a::before {
       font-size: 14px;
   }
 }
+/* logo */
+.brand-content {
+  display: flex;
+  align-items: center; /* Center vertically */
+}
+
+.text {
+  flex: 1; /* Take up remaining space */
+  padding-right: 20px; /* Add space between text and image */
+}
+
+img {
+  max-width: 100%; /* Ensure image does not exceed container width */
+}
