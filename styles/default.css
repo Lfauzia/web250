@@ -143,35 +143,42 @@ img {
 .color-F8F8F8 {
   background-color: #F8F8F8;
   color: #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .color-f0f0f0 {
   background-color: #f0f0f0;
   color: #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .color-95a5a6 {
   background-color: #95a5a6;
   color: #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .color-000000 {
   background-color: #000000;
   color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .color-a5babb {
   background-color: #a5babb;
   color: #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .color-8e9a9a {
   background-color: #8e9a9a;
   color: #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .color-667e8e {
   background-color: #667e8e;
   color: #000000;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
-
+/* my color palette ends */
