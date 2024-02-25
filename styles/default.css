@@ -1,5 +1,5 @@
-/* Common styles for text alignment and font family */
- header > div,h1, h2, h3, h4, h5,footer {
+/*alignment */
+header > div,h1, h2, h3, h4, h5,footer {
     text-align: center;
     
 }
@@ -112,10 +112,6 @@ header > div, footer {
   background: linear-gradient(to right, #95a5a6, #7f8c8d);
   
 }
-/* Iconography 
-header > div a::before {
-  content: "\1F4D6"; /* Unicode for a book icon */
-  /*margin-right: 5px;} * look for a better icone /
 
   /* Responsive Design */
 @media screen and (max-width: 768px) {
