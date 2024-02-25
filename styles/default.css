@@ -184,14 +184,3 @@ img.logo {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 /* my color palette ends */
-
-.background-image {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  width: 75%; /* Adjust the width as needed */
-  opacity: 0.6; /* Adjust the opacity as needed */
-  filter: grayscale(100%); /* Optional: Convert image to grayscale */
-  box-shadow: 0px 
