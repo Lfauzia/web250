@@ -75,7 +75,7 @@ main > div > figure > figcaption  {
 /* Container Styles */
 main > div {
     background-color: #f0f0f0;
-    max-width:90%;
+    max-width:75%;
     margin: 10px auto; /* Center the container and add top/bottom margin */
     padding: 20px;
     border-radius: 50px;
@@ -92,7 +92,7 @@ main p:nth-child(2) a {
 header {
     margin-left: auto;
     margin-right: auto;
-    max-width: 95%;
+    max-width: 80%;
 }
 
 /* Footer navigation bar styles */
@@ -100,10 +100,9 @@ footer {
   background-color: #95a5a6;
   text-decoration: none; 
   overflow: auto;
-  font-size: small;
   margin-left: auto;
   margin-right: auto;
-  max-width: 95%;
+  max-width: 80%;
   box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
 }
 
