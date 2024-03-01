@@ -47,7 +47,7 @@ a.active {
 /* Main content area styles */
 main {
    
-    margin: 0 auto; /* Center the main content */
+    position: relative;
 }
 
 /* Additional styles */
@@ -70,6 +70,14 @@ main > div > figure > figcaption  {
 
 #signature {
     font-style: italic;
+}
+
+main > div > img {
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  max-width: 200px; /* Adjust as needed */
+  z-index: -1; /* Ensure the image is behind the text */
+  display: block;
 }
 
 /* Container Styles */
