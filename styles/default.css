@@ -63,9 +63,9 @@ main > div > figure > img {
     max-width: 100%;
 }
 
-main > div > figure > figcaption  {
-    text-align: center;
+main > div > figure > figcaption  {   
     font-style: italic;
+    padding-left: 48px;
 }
 
 #signature {
