@@ -25,12 +25,12 @@
         // Define the content file path based on the page parameter
         $content_path = 'components/' . $_GET['page'] . '.php';
         
-        // Check if the content file exists
+        // if the content file exists
         if(file_exists($content_path)) {
-            // Include the content file
+            // the content file
             include $content_path;
         } else {
-            // Handle the case where the content file does not exist
+            // if file does not exist
             echo 'Page not found.';
         }
     } else {
