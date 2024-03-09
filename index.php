@@ -23,7 +23,7 @@
     // Check if page parameter is set and not empty
     if(isset($_GET['page']) && !empty($_GET['page'])) {
         // Define the content file path based on the page parameter
-        $content_path = 'components/' . $_GET['page'] . '.php';
+        $content_path = 'contents/' . $_GET['page'] . '.php';
         
         // if the content file exists
         if(file_exists($content_path)) {
@@ -35,7 +35,7 @@
         }
     } else {
         // Default content for the home page
-        include 'components/home.php';
+        include 'contents/home.php';
     }
 ?>
 </main>
