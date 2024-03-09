@@ -51,3 +51,20 @@
         <a href="https://www.freecodecamp.org/lnkazan0"> FreeCodeCamp |</a>
         <a href="https://jsfiddle.net/user/Lnkazan0/fiddles/"> JSFiddle |</a>
         <a href="https://www.linkedin.com/in/laura-f-07
+        <p> &copy; 2024 Allé Youpi. All rights reserved.</p> 
+            
+            <p> 
+                <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Flfauzia.github.io%2Fweb250%2Findex.html">
+                <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML.">
+                </a>
+                     
+                <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2FLfauzia.github.io%2Fweb250%2Fstyles%2Fdefault.css">
+                <img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS.">
+                </a>
+            </p>         
+
+    </div>
+</footer>
+                             
+
+</body>    
