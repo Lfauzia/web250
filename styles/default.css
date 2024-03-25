@@ -61,9 +61,9 @@ main {
 }
 
 /* Additional styles */
-main a[href="https://lfauzia.github.io/web250/index.html"], 
+main a[href="index.html"], 
 main a[href="https://lfauzia.github.io/web215/index.html"], 
-main a[href="https://lfauzia.github.io/web250/introduction.html"] {
+main a[href="introduction.html"] {
   text-decoration: underline;
 }
 
@@ -84,8 +84,9 @@ main > figure > figcaption  {
 
 main > img {
   float: right; /* Float the image to the right */
-  margin-left: 20px; /* Adjust as needed to create space between the text and the image */
+  margin-left: 20px; /*  to create space between the text and the image */
   max-width: 200px; /* Adjust as needed */
+  margin-top: -106px;
 }
 
 /* Container Styles */
