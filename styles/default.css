@@ -1,5 +1,5 @@
 /*alignment */
-header > nav,h1, h2, h3, h4, h5,footer {
+header > nav,h1, h2, h4, footer {
     text-align: center;
     
 }
@@ -58,6 +58,12 @@ header > nav a:hover {
 /* Main content area styles */
 main {   
     position: relative;
+    background-color: #f0f0f0;
+    max-width:75%;
+    margin: 10px auto; /* Center the container and add top/bottom margin */
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
 }
 
 /* Additional styles */
@@ -68,14 +74,16 @@ main a[href="introduction.html"] {
 }
 
 main > figure > img {
-    display: block;
+    display: inline-block;
     margin: 0 auto;
     max-width: 100%;
+    padding-left: 230px;
+   
 }
 
 main > figure > figcaption  {   
     font-style: italic;
-    padding-left: 133px;
+    padding-left: 203px;
 }
 
 #signature {
@@ -89,15 +97,7 @@ main > img {
   margin-top: -106px;
 }
 
-/* Container Styles */
-main {
-    background-color: #f0f0f0;
-    max-width:75%;
-    margin: 10px auto; /* Center the container and add top/bottom margin */
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
-}
+
 
 main p:nth-child(2) a {
   text-decoration: underline;
