@@ -1,5 +1,5 @@
 /*alignment */
-header > div,h1, h2, h3, h4, h5,footer {
+header > nav,h1, h2, h3, h4, h5,footer {
     text-align: center;
     
 }
@@ -16,7 +16,7 @@ a {
 }
 
 /* Navigation menu styles */
-header > div {
+header > nav {
   display: flex;
   justify-content: space-between; 
   background-color: #95a5a6;
@@ -26,7 +26,7 @@ header > div {
     
 }
 
-header > div a {    
+header > nav a {    
   padding: 12px 20px; 
     color: #000000;
     text-decoration: none;
@@ -34,7 +34,7 @@ header > div a {
     transition: transform 0.3s ease;
 }
 
-header > div a:hover {
+header > nav a:hover {
   background-color: #8e9a9a;
   transition: background-color 0.3s ease;
   transform: translateY(-2px);
@@ -101,6 +101,11 @@ header {
     max-width: 80%;
 }
 
+/* Gradient Background */
+header > nav, footer {
+  background: linear-gradient(to right, #95a5a6, #7f8c8d);
+  
+}
 /* Footer navigation bar styles */
 footer {
   background-color: #95a5a6;
@@ -114,12 +119,6 @@ footer {
 
 footer > p {
   margin: 0 0; 
-}
-
-/* Gradient Background */
-header > div, footer {
-  background: linear-gradient(to right, #95a5a6, #7f8c8d);
-  
 }
 
   /* Responsive Design */
