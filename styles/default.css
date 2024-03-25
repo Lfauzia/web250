@@ -15,6 +15,10 @@ a {
     color: #000000;
 }
 
+a.active {
+  background-color: #667e8e;
+}
+
 /* Navigation menu styles */
 header > nav {
   display: flex;
@@ -22,8 +26,19 @@ header > nav {
   background-color: #95a5a6;
   overflow: auto;
   font-weight: 400;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);    
+}
+
+/* Header */
+header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+
+/* Gradient Background */
+header > nav, footer {
+background: linear-gradient(to right, #95a5a6, #7f8c8d);
 }
 
 header > nav a {    
@@ -40,13 +55,8 @@ header > nav a:hover {
   transform: translateY(-2px);
 }
 
-a.active {
-    background-color: #667e8e;
-}
-
 /* Main content area styles */
-main {
-   
+main {   
     position: relative;
 }
 
@@ -86,7 +96,6 @@ main > div {
     padding: 20px;
     border-radius: 50px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
-
 }
 
 main p:nth-child(2) a {
@@ -94,18 +103,7 @@ main p:nth-child(2) a {
 }
 
 
-/* Header */
-header {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80%;
-}
 
-/* Gradient Background */
-header > nav, footer {
-  background: linear-gradient(to right, #95a5a6, #7f8c8d);
-  
-}
 /* Footer navigation bar styles */
 footer {
   background-color: #95a5a6;
