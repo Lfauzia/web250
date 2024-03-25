@@ -91,13 +91,11 @@ main > figure > figcaption  {
 }
 
 main > img {
-  float: right; /* Float the image to the right */
+  float: right; 
   margin-left: 20px; /*  to create space between the text and the image */
-  max-width: 200px; /* Adjust as needed */
+  max-width: 200px; 
   margin-top: -106px;
 }
-
-
 
 main p:nth-child(2) a {
   text-decoration: underline;
