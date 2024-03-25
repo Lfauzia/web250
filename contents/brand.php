@@ -4,8 +4,7 @@
         <h3>TranquilHarbor</h3>
         <h5>"Nurturing Peace Within, Creating Harmony Around."</h5>
         <p>TranquilHarbor is your destination for inner peace and serenity. We offer simple resources, 
-        practices, and products to help you create a more balanced and peaceful lifestyle. Discover tranquility with us! </p> 
-            
+        practices, and products to help you create a more balanced and peaceful lifestyle. Discover tranquility with us! </p>            
         <p>Color Palette:</p>
         <p>Body background : <span class="color-F8F8F8">#F8F8F8</span></p> 
         <p>Main : <span class="color-f0f0f0">#f0f0f0</span></p>
