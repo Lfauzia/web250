@@ -20,6 +20,8 @@
 </header><br>
 <main>
 <?php
+    $pageFound = true; // Assume the page is found initially
+
     // Check if page parameter is set and not empty
     if(isset($_GET['page']) && !empty($_GET['page'])) {
         // Define the content file path based on the page parameter
@@ -27,15 +29,20 @@
         
         // if the content file exists
         if(file_exists($content_path)) {
-            // the content file
+            // Include the content file
             include $content_path;
         } else {
-            // if file does not exist
-            echo 'Page not found.';
+            // Set pageFound to false if file does not exist
+            $pageFound = false;
         }
     } else {
         // Default content for the home page
         include 'contents/home.php';
+    }
+
+    // Display "Page not found." message if the page is not found
+    if(!$pageFound) {
+        echo 'Page not found.';
     }
 ?>
 </main><br>
@@ -52,7 +59,7 @@
         <p> &copy; 2024 Allé Youpi. All rights reserved.</p> 
             
         <p> 
-            <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Flfauzia.github.io%2Fweb250%2Findex.html">
+            <a href="https://validator.w3.org/check?uri=referer">
             <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML.">
             </a>
                      
