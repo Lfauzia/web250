@@ -16,6 +16,8 @@
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'introduction') echo 'class="active"'; ?> href="index.php?page=introduction">INTRODUCTION</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'contract') echo 'class="active"'; ?> href="index.php?page=contract">CONTRACT</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="index.php?page=brand">BRAND</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="index.php?page=fizz">FIZZ</a>
+
     </nav>
 </header><br>
 <main>
