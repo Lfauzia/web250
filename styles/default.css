@@ -192,13 +192,16 @@ img.logo {
 /*fizzbuzzbang*/
 .form-container {
   width: 45%; /* Adjust width as needed */
+
 }
 
 .result-container {
   width: 45%; /* Adjust width as needed */
+  text-align:justify; 
 }
 
 .container {
   display: flex;
   justify-content: space-between;
+  
 }

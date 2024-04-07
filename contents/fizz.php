@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['submit'])) {
-        $name = isset($_POST['name']) ? $_POST['name'] : 'David';
+        $name = isset($_POST['name']) ? $_POST['name'] : 'David Bombasse';
         $start = isset($_POST['start']) ? $_POST['start'] : 1;
         $end = isset($_POST['end']) ? $_POST['end'] : 111; // Changed default ending number to 111
         $fizz_word = isset($_POST['fizz_word']) ? $_POST['fizz_word'] : 'fizz';
@@ -16,13 +16,13 @@
     <div class="container">
         <div class="form-container">
             <!-- Form -->
-            <form method="post" action=""><br>
+            <form method="post" action=""><br><br>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : 'David'; ?>"><br><br>
+                <input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : 'David Bombasse'; ?>"><br><br>
                 <label for="start">Starting Number:</label>
                 <input type="number" id="start" name="start" value="<?php echo isset($_POST['start']) ? $_POST['start'] : 1; ?>"><br><br> 
                 <label for="end">Ending Number:</label>
-                <input type="number" id="end" name="end" value="<?php echo isset($_POST['end']) ? $_POST['end'] : 111; ?>"><br><br> 
+                <input type="number" id="end" name="end" value="<?php echo isset($_POST['end']) ? $_POST['end'] : 105; ?>"><br><br> 
                 <label for="fizz_word">Word for Fizz:</label>
                 <input type="text" id="fizz_word" name="fizz_word" value="<?php echo isset($_POST['fizz_word']) ? htmlspecialchars($_POST['fizz_word']) : 'fizz'; ?>"><br><br>
                 <label for="fizz_num">Number for Fizz:</label>
@@ -42,7 +42,7 @@
         <div class="result-container">
             <!-- Results -->
             <h4>Hello, <?php echo $name; ?>!</h4>
-            <h5>Your results are:</h5>
+            <p>Your results are:</p>
             <div class="result">
                 <?php
                 for ($i = $start; $i <= $end; $i++) {
