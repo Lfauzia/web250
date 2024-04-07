@@ -188,3 +188,17 @@ img.logo {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 /* my color palette ends */
+
+/*fizzbuzzbang*/
+.form-container {
+  width: 45%; /* Adjust width as needed */
+}
+
+.result-container {
+  width: 45%; /* Adjust width as needed */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
