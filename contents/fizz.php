@@ -12,6 +12,8 @@
     ?>
 
     <h2>FizzBuzzBang Application</h2>
+    <img src="images/2.png" alt="image 2">
+    
 
     <div class="container">
         <div class="form-container">
@@ -40,6 +42,7 @@
         </div>
 
         <div class="result-container">
+        
             <!-- Results -->
             <h4>Hello, <?php echo $name; ?>!</h4>
             <p>Your results are:</p>
@@ -70,9 +73,11 @@
     } else {
     ?>
     <h2>FizzBuzzBang Application</h2>
+    <img src="images/2.png" alt="image 2">
+    
 
     <!-- Form -->
-    <img src="images/2.png" alt="image 2">
+    
     <form method="post" action="">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : 'David'; ?>"><br><br>
