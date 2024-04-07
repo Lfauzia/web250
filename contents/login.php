@@ -39,11 +39,11 @@
     <div class="message">
         <?php if (isset($authMessage)) echo $authMessage; ?>
     </div>
-    <form action="" method="POST">
+    <form action="account.php" method="POST">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+        <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" value="Login">
     </form>
-    <p>If you need an account. Click <a href="?p=contents/register.php">Register</a></p>
+    <p>If you need an account. Register <a href="?p=contents/registration.php">Here</a></p>
