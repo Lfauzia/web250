@@ -41,7 +41,7 @@
     <div class="message">
         <?php if (isset($authMessage)) echo $authMessage; ?>
     </div>
-    <form action="" method="POST">
+    <form action="" method="POST" class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>

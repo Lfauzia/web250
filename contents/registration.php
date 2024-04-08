@@ -16,20 +16,20 @@ session_start();
 <header>
     <h1>Laura Fauzia's Legendary Fox || WEB250</h1>
     <nav>
-    <a <?php if(isset($_GET['page']) && $_GET['page'] == 'home') echo 'class="active"'; ?> href="../index.php?page=home">HOME</a>
-    <a <?php if(isset($_GET['page']) && $_GET['page'] == 'introduction') echo 'class="active"'; ?> href="../index.php?page=introduction">INTRODUCTION</a>
-    <a <?php if(isset($_GET['page']) && $_GET['page'] == 'contract') echo 'class="active"'; ?> href="../index.php?page=contract">CONTRACT</a>
-    <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="../index.php?page=brand">BRAND</a>
-    <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="../index.php?page=fizz">FIZZ</a>
-    <a <?php if(isset($_GET['page']) && $_GET['page'] == 'form') echo 'class="active"'; ?> href="../index.php?page=form">FORM</a>
-    <?php
-        if(!isset($_SESSION["username"])) {
-            echo '<a ';
-            if(isset($_GET['page']) && $_GET['page'] == 'login') echo 'class="active"';
-            echo ' href="../index.php?page=login">LOGIN</a>';
-        }
-    ?>
-</nav> 
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'home') echo 'class="active"'; ?> href="../index.php?page=home">HOME</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'introduction') echo 'class="active"'; ?> href="../index.php?page=introduction">INTRODUCTION</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'contract') echo 'class="active"'; ?> href="../index.php?page=contract">CONTRACT</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="../index.php?page=brand">BRAND</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="../index.php?page=fizz">FIZZ</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'form') echo 'class="active"'; ?> href="../index.php?page=form">FORM</a>
+        <?php
+            if(!isset($_SESSION["username"])) {
+                echo '<a ';
+                if(isset($_GET['page']) && $_GET['page'] == 'login') echo 'class="active"';
+                echo ' href="../index.php?page=login">LOGIN</a>';
+            }
+        ?>
+    </nav> 
 </header><br>
 
 
@@ -37,7 +37,7 @@ session_start();
     <h2>Register</h2>
     <img src="../images/2.png" alt="image 2">
        
-    <form action="" method="POST" id="register-form">
+    <form action="" method="POST" id="registraction-form">
         <small class="message">
             <?php
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -74,31 +74,43 @@ session_start();
                     }
                 }
             ?>
-        </small>
-        <fieldset>
-            <div>
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" required>
-                
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname" required>
-             
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="15 chars max; only letters and numbers" required>
+    </small>
+        
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" required>
+        </div>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="must be 6 characters" required>
-                
-                <label for="confirmpassword">Confirm Password:</label>
-                <input type="password" id="confirmpassword" name="confirmpassword" required>
-            </div>
-            <input type="hidden" name="p" value="contents/registration.php">
-            <input type="submit" value="Register">
-        </fieldset>
+        <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="15 chars max; only letters and numbers" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="must be 6 characters" required>
+            <!-- Password strength indicator -->
+            <div id="password-strength"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmpassword">Confirm Password:</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" required>
+        </div>
+
+        <input type="hidden" name="p" value="contents/registration.php">
+        <button type="submit" class="btn-register">Register</button>
+   
         <br>
     </form>
    
