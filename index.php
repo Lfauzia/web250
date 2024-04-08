@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +21,19 @@
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'contract') echo 'class="active"'; ?> href="index.php?page=contract">CONTRACT</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="index.php?page=brand">BRAND</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="index.php?page=fizz">FIZZ</a>
-        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'login') echo 'class="active"'; ?> href="index.php?page=login">LOGIN</a>
-
-
-
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'form') echo 'class="active"'; ?> href="index.php?page=form">FORM</a>
+        <?php
+            if(!isset($_SESSION["username"])) {
+                $username = $_SESSION["username"];
+                echo '<a ';
+                if(isset($_GET['page']) && ($_GET['page'] == 'login' || $_GET['page'] == 'registration')) echo 'class="active"';
+                echo ' href="index.php?page=login">LOGIN</a>';
+            } else { 
+                echo '<a ';
+                if(isset($_GET['page']) && $_GET['page'] == 'registration') echo 'class="active"';
+                echo ' href="index.php?page=registration">REGISTER</a>';
+            }
+        ?>
     </nav>
 </header><br>
 <main>
@@ -73,4 +86,5 @@
             </a>
         </p>                          
     </footer>
-</body>    
+</body>
+</html>

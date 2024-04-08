@@ -1,5 +1,6 @@
 <h2>Log in</h2>
 
+
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         include 'components/db_connect.php';
@@ -23,7 +24,7 @@
                     $_SESSION['fname'] = $row['fname'];
                     $_SESSION['lname'] = $row['lname'];
                     $_SESSION['email'] = $row['email'];
-                    header('Location: ?p=contents/account.php');
+                    header('Location: contents/account.php');
                     exit;
                 } else {
                     return 'Incorrect password.';
@@ -39,11 +40,12 @@
     <div class="message">
         <?php if (isset($authMessage)) echo $authMessage; ?>
     </div>
-    <form action="account.php" method="POST">
+    <form action="" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" value="Login">
     </form>
-    <p>If you need an account. Register <a href="?p=contents/registration.php">Here</a></p>
+    <p>If you need an account. Register <a href="contents/registration.php">Here</a></p>
+

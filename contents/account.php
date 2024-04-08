@@ -3,7 +3,7 @@
     <?php
         if(isset($_POST["logout"])) {
             session_destroy();
-            header('Location: ?p=contents/home.php');
+            header('Location: ?p=contents/index.php');
         }
         $username = $_SESSION['username'];
         echo "<p>Welcome, $username. You have successfully logged in.</p>";
