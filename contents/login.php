@@ -1,4 +1,5 @@
 <h2>Log in</h2>
+<img src="images/2.png" alt="image 2">
 
 
     <?php

@@ -30,15 +30,13 @@ session_start();
         }
     ?>
 </nav> 
-
 </header><br>
 
 
 <main>
-
     <h2>Register</h2>
-    
-    
+    <img src="../images/2.png" alt="image 2">
+       
     <form action="" method="POST" id="register-form">
         <small class="message">
             <?php
