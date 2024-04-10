@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $postLastName = sanitizeData($_POST['postLastName']);
         $postEmail = sanitizeData($_POST['postEmail']);
         $postMessage = sanitizeData($_POST['postMessage']);
-        // $postOption = sanitizeData($_POST['postOption']); // Removed this line
+        
     }
 }
 
@@ -34,17 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $getLastName = sanitizeData($_GET['getLastName']);
         $getEmail = sanitizeData($_GET['getEmail']);
         $getMessage = sanitizeData($_GET['getMessage']);
-        // $getOption = sanitizeData($_GET['getOption']); // Removed this line
+        
         
         // Display success message for GET form submission
-        echo "<p style='color: green;'>Thank you for your submission! We have received your message and will contact you soon.</p>";
+        echo "<p>Thank you for your submission! We have received your message and will contact you soon.</p>";
     }
 }
 
 // Display HTML forms
 echo "
     <section id='post-form'>
-        <h4>Form with POST Method</h4>
+        <h4 style='text-align: left;'>Form with POST Method</h4>
         <form action='' method='post'>
             <label for='postFirstName'>First Name:</label>
             <input type='text' id='postFirstName' name='postFirstName'><br>
@@ -53,7 +53,7 @@ echo "
             <label for='postEmail'>Email:</label>
             <input type='email' id='postEmail' name='postEmail'><br>
             <label for='postMessage'>Message:</label>
-            <textarea id='postMessage' name='postMessage'></textarea><br>
+            <textarea id='postMessage' name='postMessage' placeholder='How did you discover us?'></textarea><br>
             <label for='postTranquility'>Tranquility Level:</label>
             <select id='postTranquility' name='postTranquility'>
                 <option value='high'>High</option>
@@ -67,7 +67,7 @@ echo "
     <hr>
 
     <section id='get-form'>
-        <h4>Form with GET Method</h4>
+        <h4 style='text-align: left;'>Form with GET Method</h4>
         <form action='' method='get'>
             <label for='getFirstName'>First Name:</label>
             <input type='text' id='getFirstName' name='getFirstName'><br>
@@ -83,6 +83,7 @@ echo "
                 <option value='medium'>Medium</option>
                 <option value='low'>Low</option>
             </select><br>
+            
             <input type='submit' value='Submit GET Form'>
         </form>
     </section>
@@ -108,10 +109,4 @@ if (!empty($getFirstName)) {
     echo "Message: $getMessage <br>";
     echo "Tranquility Level: $getTranquility <br>";
 }
-
-// Close HTML body and document
-echo "
-    </body>
-</html>
-";
 ?>
