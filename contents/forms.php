@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 echo "
     <section id='post-form'>
         <h4 style='text-align: left;'>Form with POST Method</h4>
-        <form action='' method='post'>
+        <form action='' method='post' id='form1' name='form1'>
             <label for='postFirstName'>First Name:</label>
             <input type='text' id='postFirstName' name='postFirstName'><br>
             <label for='postLastName'>Last Name:</label>
@@ -68,7 +68,7 @@ echo "
 
     <section id='get-form'>
         <h4 style='text-align: left;'>Form with GET Method</h4>
-        <form action='' method='get'>
+        <form action='' method='GET' id='form2' name='form2' >
             <label for='getFirstName'>First Name:</label>
             <input type='text' id='getFirstName' name='getFirstName'><br>
             <label for='getLastName'>Last Name:</label>
@@ -83,8 +83,8 @@ echo "
                 <option value='medium'>Medium</option>
                 <option value='low'>Low</option>
             </select><br>
-            
-            <input type='submit' value='Submit GET Form'>
+            <input type='hidden' name='page' id='page' value='forms'/>
+            <input type='submit' value='Submit GET Form'/>
         </form>
     </section>
 ";

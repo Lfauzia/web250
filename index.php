@@ -22,6 +22,8 @@ session_start();
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="index.php?page=brand">BRAND</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="index.php?page=fizz">FIZZ</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'forms') echo 'class="active"'; ?> href="index.php?page=forms">FORMS</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'wellness') echo 'class="active"'; ?> href="index.php?page=wellness">FORMS</a>
+
         <?php
              echo '<a ';
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
