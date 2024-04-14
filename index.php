@@ -23,16 +23,22 @@ session_start();
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="index.php?page=fizz">FIZZ</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'forms') echo 'class="active"'; ?> href="index.php?page=forms">FORMS</a>
         <?php
-            if(!isset($_SESSION["username"])) {
-                $username = $_SESSION["username"];
-                echo '<a ';
-                if(isset($_GET['page']) && ($_GET['page'] == 'login' || $_GET['page'] == 'registration')) echo 'class="active"';
+             echo '<a ';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                echo ' href="index.php?page=login">LOGGED IN</a>';  
+            }else{
                 echo ' href="index.php?page=login">LOGIN</a>';
-            } else { 
-                echo '<a ';
-                if(isset($_GET['page']) && $_GET['page'] == 'registration') echo 'class="active"';
-                echo ' href="index.php?page=registration">REGISTER</a>';
             }
+            // if(!isset($_SESSION["username"])) {
+            //     $username = $_SESSION["username"];
+            //     echo '<a ';
+            //     if(isset($_GET['page']) && ($_GET['page'] == 'login' || $_GET['page'] == 'registration')) echo 'class="active"';
+            //     echo ' href="index.php?page=login">LOGIN</a>';
+            // } else { 
+            //     echo '<a ';
+            //     if(isset($_GET['page']) && $_GET['page'] == 'registration') echo 'class="active"';
+            //     echo ' href="index.php?page=registration">REGISTER</a>';
+            // }
         ?>
     </nav>
 </header><br>
