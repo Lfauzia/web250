@@ -27,7 +27,8 @@
                 $username = $_SESSION["username"];
                 echo '<a ';
                 if(isset($_GET['page']) && ($_GET['page'] == 'login' || $_GET['page'] == 'registration')) echo 'class="active"';
-                echo ' href="login.php">LOGIN</a>';
+                // echo ' href="login.php">LOGIN</a>';
+                echo ' href="../index.php?page=login">LOGIN</a>';
             } else { 
                 echo '<a ';
                 if(isset($_GET['page']) && $_GET['page'] == 'registration') echo 'class="active"';
@@ -52,7 +53,15 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="registraction-form"> <!-- Set action to the same page -->
         <small class="message">
             <?php
+                
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                    $_SESSION["successMessage"] = 'Account created successfully.';
+                    // No need to redirect, the success message will be displayed on the same page
+                    header("Location: ".$_SERVER['PHP_SELF']);
+                    exit;
+
+
                     include 'components/db_connect.php';
 
                     $fname = $_POST['fname'];
