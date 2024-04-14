@@ -12,42 +12,10 @@
         
       
         // Function to authenticate user
-        function authenticateUser($username, $password, $mysqli) {
-            // echo '<div>test '.$username.'!!!! </test>';
-            //          header('Location: contents/account.php');
-            //     exit;
-            // // header('Location: contents/account.php');
-            // exit;
-
-            // $query = $mysqli->prepare("SELECT * FROM account WHERE username = ?");
-            // $query->bind_param('s', $username);
-            // $query->execute();
-            // $result = $query->get_result();
-            // if ($result->num_rows == 0) {
-            //     header('Location: contents/account.php');
-            //     exit;
-            //     // return 'Username not found.';
-            // } else {
-            //     $row = $result->fetch_assoc();
-            //     if (password_verify($password, $row['password'])) {
-            //         session_start();
-            //         $_SESSION['username'] = $username;
-            //         $_SESSION['id'] = $row['id'];
-            //         $_SESSION['fname'] = $row['fname'];
-            //         $_SESSION['lname'] = $row['lname'];
-            //         $_SESSION['email'] = $row['email'];
-            //         header('Location: contents/account.php');
-            //         exit;
-            //     } else {
-            //         return 'Incorrect password.';
-            //     }
-            // }
+        function authenticateUser($username, $password, $mysqli) {            
         }
-
         // Call the authentication function
-        // $authMessage = authenticateUser($username, $password, $mysqli);
-        $authMessage ="";
-       
+        $authMessage ="";       
     }
     ?>
 
@@ -63,6 +31,6 @@
         <input type="submit" value="Login">
     </form>
 </div>
-    <p>If you need an account. Register <a href="contents/registration.php">Here</a></p>
+    <p>If you need an account. <a href="contents/registration.php"> Register Here </a></p>
 
 
