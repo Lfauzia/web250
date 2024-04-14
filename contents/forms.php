@@ -11,17 +11,18 @@ function sanitizeData($data) {
 }
 
 // Initialize variables to hold form input values
-$postFirstName = $postLastName = $postEmail = $postMessage = $postOption = '';
-$getFirstName = $getLastName = $getEmail = $getMessage = $getOption = '';
+$postFirstName = $postLastName = $postEmail = $postMessage = $postTranquility = ''; // Added $postTranquility
+$getFirstName = $getLastName = $getEmail = $getMessage = $getTranquility = ''; // Added $getTranquility
 
 // Check if POST values are present
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process POST form data
-    if (isset($_POST['postFirstName']) && isset($_POST['postLastName']) && isset($_POST['postEmail']) && isset($_POST['postMessage'])) {
+    if (isset($_POST['postFirstName']) && isset($_POST['postLastName']) && isset($_POST['postEmail']) && isset($_POST['postMessage']) && isset($_POST['postTranquility'])) {
         $postFirstName = sanitizeData($_POST['postFirstName']);
         $postLastName = sanitizeData($_POST['postLastName']);
         $postEmail = sanitizeData($_POST['postEmail']);
         $postMessage = sanitizeData($_POST['postMessage']);
+        $postTranquility = sanitizeData($_POST['postTranquility']); // Assign the value to $postTranquility
         
         // Display POST form results
         echo "<h2>Form Results:</h2>";
@@ -31,17 +32,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Email: $postEmail <br>";
         echo "Message: $postMessage <br>";
         echo "Tranquility Level: $postTranquility <br>";
+        
+        // Add <hr> tag between results and forms
+        echo "<hr>";
     }
 }
 
 // Check if GET values are present
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Process GET form data
-    if (isset($_GET['getFirstName']) && isset($_GET['getLastName']) && isset($_GET['getEmail']) && isset($_GET['getMessage'])) {
+    if (isset($_GET['getFirstName']) && isset($_GET['getLastName']) && isset($_GET['getEmail']) && isset($_GET['getMessage']) && isset($_GET['getTranquility'])) {
         $getFirstName = sanitizeData($_GET['getFirstName']);
         $getLastName = sanitizeData($_GET['getLastName']);
         $getEmail = sanitizeData($_GET['getEmail']);
         $getMessage = sanitizeData($_GET['getMessage']);
+        $getTranquility = sanitizeData($_GET['getTranquility']); // Assign the value to $getTranquility
         
         // Display success message for GET form submission
         echo "<h2>Form Results:</h2>";
@@ -51,6 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo "Email: $getEmail <br>";
         echo "Message: $getMessage <br>";
         echo "Tranquility Level: $getTranquility <br>";
+        
+        // Add <hr> tag between results and forms
+        echo "<hr>";
     }
 }
 
