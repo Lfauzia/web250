@@ -41,10 +41,9 @@
             </form>
         </div>
 
-        <div class="result-container">
-        
+        <div class="result-container">       
             <!-- Results -->
-            <h4>Hello, <?php echo $name; ?>!</h4>
+            <h4>Hello, <?php echo $name; ?> !</h4>
             <p>Your results are:</p>
             <div class="result">
                 <?php
@@ -76,8 +75,7 @@
     <img src="images/2.png" alt="image 2">
     
 
-    <!-- Form -->
-    
+    <!-- Form -->   
     <form method="post" action="">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : 'David'; ?>"><br><br>
