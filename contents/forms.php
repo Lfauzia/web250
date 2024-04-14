@@ -68,15 +68,15 @@ echo "
     <h4 style='text-align: left;'>Form with POST Method</h4>
     <form action='' method='post' id='form1' name='form1'>
         <label for='postFirstName'>First Name:</label>
-        <input type='text' id='postFirstName' name='postFirstName'><br>
+        <input type='text' id='postFirstName' name='postFirstName' required><br>
         <label for='postLastName'>Last Name:</label>
-        <input type='text' id='postLastName' name='postLastName'><br>
+        <input type='text' id='postLastName' name='postLastName' required><br>
         <label for='postEmail'>Email:</label>
-        <input type='email' id='postEmail' name='postEmail'><br>
+        <input type='email' id='postEmail' name='postEmail' required><br>
         <label for='postMessage'>Message:</label>
         <textarea id='postMessage' name='postMessage' placeholder='How did you discover us?'></textarea><br>
         <label for='postTranquility'>Tranquility Level:</label>
-        <select id='postTranquility' name='postTranquility'>
+        <select id='postTranquility' name='postTranquility' required>
             <option value='high'>High</option>
             <option value='medium'>Medium</option>
             <option value='low'>Low</option>
@@ -91,15 +91,15 @@ echo "
     <h4 style='text-align: left;'>Form with GET Method</h4>      
     <form action='' method='GET' id='form2' name='form2' >
         <label for='getFirstName'>First Name:</label>
-        <input type='text' id='getFirstName' name='getFirstName'><br>
+        <input type='text' id='getFirstName' name='getFirstName' required><br>
         <label for='getLastName'>Last Name:</label>
-        <input type='text' id='getLastName' name='getLastName'><br>
+        <input type='text' id='getLastName' name='getLastName' required><br>
         <label for='getEmail'>Email:</label>
-        <input type='email' id='getEmail' name='getEmail'><br>
+        <input type='email' id='getEmail' name='getEmail' required><br>
         <label for='getMessage'>Message:</label>
         <textarea id='getMessage' name='getMessage' placeholder='How did you discover us?'></textarea><br>
         <label for='getTranquility'>Tranquility Level:</label>
-        <select id='getTranquility' name='getTranquility'>
+        <select id='getTranquility' name='getTranquility' required>
             <option value='high'>High</option>
             <option value='medium'>Medium</option>
             <option value='low'>Low</option>
