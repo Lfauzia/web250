@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['submit'])) {
-        $name = isset($_POST['name']) ? $_POST['name'] : 'David / Davina';
+        $name = isset($_POST['name']) ? $_POST['name'] : 'David';
         $start = isset($_POST['start']) ? $_POST['start'] : 1;
         $end = isset($_POST['end']) ? $_POST['end'] : 111; // Changed default ending number to 111
         $fizz_word = isset($_POST['fizz_word']) ? $_POST['fizz_word'] : 'fizz';
@@ -20,7 +20,7 @@
             <!-- Form -->
             <form method="post" action=""><br><br>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : 'David / Davina'; ?>"><br><br>
+                <input type="text" id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : 'David'; ?>"><br><br>
                 <label for="start">Starting Number:</label>
                 <input type="number" id="start" name="start" value="<?php echo isset($_POST['start']) ? $_POST['start'] : 1; ?>"><br><br> 
                 <label for="end">Ending Number:</label>
