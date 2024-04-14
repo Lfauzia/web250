@@ -22,7 +22,7 @@ session_start();
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="index.php?page=brand">BRAND</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="index.php?page=fizz">FIZZ</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'forms') echo 'class="active"'; ?> href="index.php?page=forms">FORMS</a>
-        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'wellness') echo 'class="active"'; ?> href="index.php?page=wellness">FORMS</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'well') echo 'class="active"'; ?> href="index.php?page=well">WELL</a>
 
         <?php
              echo '<a ';
@@ -31,22 +31,12 @@ session_start();
             }else{
                 echo ' href="index.php?page=login">LOGIN</a>';
             }
-            // if(!isset($_SESSION["username"])) {
-            //     $username = $_SESSION["username"];
-            //     echo '<a ';
-            //     if(isset($_GET['page']) && ($_GET['page'] == 'login' || $_GET['page'] == 'registration')) echo 'class="active"';
-            //     echo ' href="index.php?page=login">LOGIN</a>';
-            // } else { 
-            //     echo '<a ';
-            //     if(isset($_GET['page']) && $_GET['page'] == 'registration') echo 'class="active"';
-            //     echo ' href="index.php?page=registration">REGISTER</a>';
-            // }
         ?>
     </nav>
 </header><br>
 <main>
 <?php
-    $pageFound = true; // Assume the page is found initially
+    $pageFound = true; 
 
     // Check if page parameter is set and not empty
     if(isset($_GET['page']) && !empty($_GET['page'])) {
