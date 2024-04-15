@@ -8,7 +8,7 @@
         // include 'components/db_connect.php';
         $username = $_POST['username'];
         $password = $_POST['password'];
-        echo '<div>You are logged in  '.$username.'!!!! </test>';
+        echo '<div> Welcome... You are logged in  '.$username.'!!!! </test>';
         
       
         // Function to authenticate user

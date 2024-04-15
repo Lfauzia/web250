@@ -27,7 +27,7 @@ session_start();
         <?php
              echo '<a ';
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                echo ' href="index.php?page=login">LOGGED IN</a>';  
+                echo ' href="index.php?page=login">LOGGED</a>';  
             }else{
                 echo ' href="index.php?page=login">LOGIN</a>';
             }

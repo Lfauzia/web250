@@ -99,7 +99,7 @@ echo "
         <label for='getMessage'>Message:</label>
         <textarea id='getMessage' name='getMessage' placeholder='How did you discover us?'></textarea><br>
         <label for='getTranquility'>Tranquility Level:</label>
-        <select id='getTranquility' name='getTranquility' required>
+        <select id='getTranquility' name='getTranquility' >
             <option value='high'>High</option>
             <option value='medium'>Medium</option>
             <option value='low'>Low</option>
