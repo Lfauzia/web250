@@ -42,30 +42,34 @@
         </div>
 
         <div class="result-container">       
-            <!-- Results -->
-            <h4>Hello, <?php echo $name; ?> !</h4>
-            <p>Your results are:</p>
-            <div class="result">
-                <?php
-                for ($i = $start; $i <= $end; $i++) {
-                    $output = '';
-                    if ($i % $fizz_num == 0) {
-                        $output .= $fizz_word;
-                    }
-                    if ($i % $buzz_num == 0) {
-                        $output .= $buzz_word;
-                    }
-                    if ($i % $bang_num == 0) {
-                        $output .= $bang_word;
-                    }
-                    if ($output === '') {
-                        $output = $i;
-                    }
-                    echo $output . "<br>";
-                }
-                ?>
-            </div>
-        </div>
+    <!-- Results -->
+    <h4>Hello, <?php echo $name; ?>!</h4>
+    <p>Your results are:</p>
+    <div class="result">
+        <?php
+        $results = array();
+        for ($i = $start; $i <= $end; $i++) {
+            $output = '';
+            if ($i % $fizz_num == 0) {
+                $output .= $fizz_word . ' ';
+            }
+            if ($i % $buzz_num == 0) {
+                $output .= $buzz_word . ' ';
+            }
+            if ($i % $bang_num == 0) {
+                $output .= $bang_word . ' ';
+            }
+            if ($output === '') {
+                $output = $i;
+            }
+            $results[] = $output;
+        }
+        echo implode(', ', $results);
+        ?>
+    </div>
+</div>
+
+
     </div>
 
     <?php 
