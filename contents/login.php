@@ -1,23 +1,5 @@
-<?php  $isposted = $_SERVER['REQUEST_METHOD'] == 'POST'  ?>
-<h2><?php if ($isposted) {echo 'Logged In'; } else {echo 'Log in';} ?></h2>
+<h2><?php if ($is_loggedin) {echo 'Logged In'; } else {echo 'Log in';} ?></h2>
 <img src="images/2.png" alt="image 2"> <br>
-
-
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // include 'components/db_connect.php';
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        echo '<div> Welcome... You are logged in  '.$username.'!!!! </test>';
-        
-      
-        // Function to authenticate user
-        function authenticateUser($username, $password, $mysqli) {            
-        }
-        // Call the authentication function
-        $authMessage ="";       
-    }
-    ?>
 
     <div class="message">
         <?php if (isset($authMessage)) echo $authMessage; ?>
