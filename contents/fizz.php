@@ -2,7 +2,7 @@
     if(isset($_POST['submit'])) {
         $name = isset($_POST['name']) ? $_POST['name'] : 'David';
         $start = isset($_POST['start']) ? $_POST['start'] : 1;
-        $end = isset($_POST['end']) ? $_POST['end'] : 111; // Changed default ending number to 111
+        $end = isset($_POST['end']) ? $_POST['end'] : 111; 
         $fizz_word = isset($_POST['fizz_word']) ? $_POST['fizz_word'] : 'fizz';
         $fizz_num = isset($_POST['fizz_num']) ? $_POST['fizz_num'] : 3;
         $buzz_word = isset($_POST['buzz_word']) ? $_POST['buzz_word'] : 'buzz';

@@ -37,7 +37,6 @@ session_start();
 
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                echo '<div> Welcome... You are logged in  ' . $username . '!!!! </div>';
                 if ($username != null) {
                     $_SESSION['username'] = $username;
                 }
@@ -66,14 +65,14 @@ session_start();
             <?php
             echo '<a ';
             if ($is_loggedin) {
-                echo ' href="index.php?page=login">LOGGED AS' . $username . '</a>';
+                echo ' href="index.php?page=login">LOGGED</a>';
             } else {
                 echo ' href="index.php?page=login">LOGIN</a>';
             }
 
             ?>
         </nav>
-        <div style="text-align: right; display:<?php if($is_loggedin) echo  'block'; else {echo 'none'; }; ?>"><a href="logout.php">Logout</a></div>
+        <div style="text-align: right; display:<?php if($is_loggedin) echo  'block'; else {echo 'none'; }; ?>"><a href="index.php?page=logout">Logout</a></div>
     </header><br>
     <main>
         <?php
