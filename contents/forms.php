@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $postTranquility = sanitizeData($_POST['postTranquility']); // Assign the value to $postTranquility
         
         // Display POST form results
-        echo "<h2>Form Results:</h2>";
+        echo "<h3> Results:</h3>";
         echo "POST Method:<br>";
         echo "First Name: $postFirstName <br>";
         echo "Last Name: $postLastName <br>";
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $getTranquility = sanitizeData($_GET['getTranquility']); // Assign the value to $getTranquility
         
         // Display success message for GET form submission
-        echo "<h2>Form Results:</h2>";
+        echo "<h3>Results:</h3>";
         echo "GET Method:<br>";
         echo "First Name: $getFirstName <br>";
         echo "Last Name: $getLastName <br>";
