@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Business Card</title>
+<title>Full Stack Engineer Business Card</title>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,7 +12,7 @@
         padding: 0;
     }
     .card {
-        background-color: #fff; /
+        background-color: #fff; 
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         padding: 40px;
@@ -92,11 +92,11 @@
 <div class="card">
     <div class="card-border"></div>
     <h1>Laura Fauzia</h1>
-    <p>Owner, Legendary Fox</p>
+    <p>Full Stack Programmer</p>
     <div class="contact-info">
-        <p>Email: lfox@example.com</p>
+        <p>Email: lnkazan0@email.cpcc.edu</p>
         <p>Phone: +1234567890</p>
-        <p>Website: <a href="http://hellofox.lovestoblog.com/index.php?page=home" target="_blank">Hello Fox</a></p>
+        <p>Website: <a href="https://www.linkedin.com/in/laura-f-07331a2aa/" target="_blank">LauraF</a></p>
         <p>Address: 1 Seven Oh Four, Charlotte NC, USA</p>
         <p>Social: <a href="https://www.facebook.com/example" target="_blank">Facebook</a>, <a href="https://www.twitter.com/example" target="_blank">X</a>, <a href="https://www.instagram.com/example" target="_blank">Instagram</a></p>
     </div>
