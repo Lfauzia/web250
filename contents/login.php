@@ -37,4 +37,4 @@ if ($isposted) {
     </form>
 </div>
 
-<p>If you need an account. <a href="contents/registration.php">Register Here</a></p>
+<p>If you need an account, <a href="contents/registration.php">Sign up<em> Here.</em></a></p>
