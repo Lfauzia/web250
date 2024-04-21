@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+$is_loggedin = false;
+
+// Check if the user is logged in
+if (isset($_SESSION['username'])) {
+    $is_loggedin = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,76 +33,31 @@ session_start();
             <a <?php if (isset($_GET['page']) && $_GET['page'] == 'forms') echo 'class="active"'; ?> href="index.php?page=forms">FORMS</a>
             <a <?php if (isset($_GET['page']) && $_GET['page'] == 'well') echo 'class="active"'; ?> href="index.php?page=well">WELL</a>
 
-
             <?php
-           
-           //form submisson logic 
-            
-
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // include 'components/db_connect.php';
-
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-                if ($username != null) {
-                    $_SESSION['username'] = $username;
-                }
-
-                // Function to authenticate user
-                function authenticateUser($username, $password, $mysqli)
-                {
-                    ///todo get username from db and compare with provided username
-                    //todo compare password hash value with what we've stored in the db.   
-                }
-                // Call the authentication function
-                $authMessage = "";
-            }
-            ?>
-
-
-            <?php
-            
-            //welcome message logic
-            $is_loggedin = false;
-            if (isset($_SESSION['username'])) {
-                $is_loggedin = true;
-                $username = $_SESSION['username'];
-            }
-            ?>
-            <?php
-            echo '<a ';
+            // Display login/logout link based on login status
             if ($is_loggedin) {
-                echo ' href="index.php?page=login">LOGGED</a>';
+                echo '<a href="index.php?page=account">LOGGED</a>';
             } else {
-                echo ' href="index.php?page=login">LOGIN</a>';
+                echo '<a href="index.php?page=login">LOGIN</a>';
             }
-
             ?>
         </nav>
-        <div style="text-align: right; display:<?php if($is_loggedin) echo  'block'; else {echo 'none'; }; ?>"><a href="index.php?page=logout">Logout</a></div>
     </header><br>
+
     <main>
         <?php
+        // Include content based on the 'page' parameter in the URL
         $pageFound = true;
-
-        // Check if page parameter is set and not empty
         if (isset($_GET['page']) && !empty($_GET['page'])) {
-            // Define the content file path based on the page parameter
             $content_path = 'contents/' . $_GET['page'] . '.php';
-
-            // if the content file exists
             if (file_exists($content_path)) {
-                // Include the content file
                 include $content_path;
             } else {
-                // Set pageFound to false if file does not exist
                 $pageFound = false;
             }
         } else {
-            // Default content for the home page
             include 'contents/home.php';
         }
-
         // Display "Page not found." message if the page is not found
         if (!$pageFound) {
             echo 'Page not found.';
@@ -111,14 +73,11 @@ session_start();
         <a href="https://www.freecodecamp.org/lnkazan0"> FreeCodeCamp |</a>
         <a href="https://jsfiddle.net/user/Lnkazan0/fiddles/"> JSFiddle |</a>
         <a href="https://www.linkedin.com/in/laura-f-07331a2aa/"> LinkedIn</a>
-
-        <p> &copy; 2024 Allé Youpi. All rights reserved.</p>
-
+        <p>&copy; 2024 Allé Youpi. All rights reserved.</p>
         <p>
             <a href="https://validator.w3.org/check?uri=referer">
                 <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML.">
             </a>
-
             <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2FLfauzia.github.io%2Fweb250%2Fstyles%2Fdefault.css">
                 <img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS.">
             </a>

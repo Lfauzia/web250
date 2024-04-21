@@ -1,5 +1,6 @@
 
     <h2>Account</h2>
+    <img src="images/2.png" alt="image 2">
     <?php
         if(isset($_POST["logout"])) {
             session_destroy();
@@ -14,3 +15,4 @@
         <input type="submit" name="logout" value="Logout">
     </form>
 </main>
+
