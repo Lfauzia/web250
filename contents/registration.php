@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include 'components/db_connect.php'; // Include database connection script
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +66,7 @@
                     exit;
 
 
-                    include 'components/db_connect.php';
+                    // include 'components/db_connect.php';
 
                     $fname = $_POST['fname'];
                     $lname = $_POST['lname'];
@@ -92,7 +94,7 @@
                             $query = $mysqli->prepare("INSERT INTO account (username, password, email, fname, lname) VALUES (?, ?, ?, ?, ?)");
                             $query->bind_param('sssss', $username, $password, $email, $fname, $lname);
                             $query->execute();
-                            $_SESSION["successMessage"] = 'Account created successfully.';
+                            $_SESSION["username"] = $username;
                             // No need to redirect, the success message will be displayed on the same page
                             header("Location: ".$_SERVER['PHP_SELF']);
                             exit;
