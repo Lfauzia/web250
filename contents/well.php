@@ -1,101 +1,90 @@
-<h2> Wellness practices </h2>
-<img src="images/2.png" alt="image 2">
-<br><br><br><br><br>
-
 <?php
-session_start(); // Start session for storing user data
-
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page if not logged in
-    header("Location: login.php");
-    exit();
-}
-
-// Database connection
-$servername = "localhost";
-$username = "$username";
-$password = "$password;
-$dbname = "test";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Handle form submission for adding new entry
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $yoga = $_POST["yoga"];
-    $favorite = $_POST["favorite"];
-    $oils = implode(", ", $_POST["oils"]);
-    $difficulty = $_POST["difficulty"];
-    $notes = $_POST["notes"];
-    $date = date("Y-m-d");
-
-    // Insert new entry into the database
-    $sql = "INSERT INTO relaxation_entries (user_id, yoga, favorite, oils, difficulty, notes, date)
-            VALUES ('{$_SESSION['user_id']}', '$yoga', '$favorite', '$oils', '$difficulty', '$notes', '$date')";
-    
-    if ($conn->query($sql) === TRUE) {
-        echo "New entry added successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-
-$conn->close();
+session_start();
+$is_loggedin = isset($_SESSION['username']);
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaxation Techniques and Wellness Practices</title>
+</head>
+<body>
 
-    <h2>Add New Entry</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        Yoga Practice: 
-        <select name="yoga">
-            <option value="Hatha">Hatha</option>
-            <option value="Vinyasa">Vinyasa</option>
-            <option value="Kundalini">Kundalini</option>
-        </select><br>
-        Favorite Relaxation Idea: <textarea name="favorite"></textarea><br>
-        Essential Oils:
-        <input type="checkbox" name="oils[]" value="Lavender"> Lavender
-        <input type="checkbox" name="oils[]" value="Chamomile"> Chamomile
-        <input type="checkbox" name="oils[]" value="Peppermint"> Peppermint<br>
-        Difficulty: 
-        <input type="radio" name="difficulty" value="1">1
-        <input type="radio" name="difficulty" value="2">2
-        <input type="radio" name="difficulty" value="3">3
-        <input type="radio" name="difficulty" value="4">4
-        <input type="radio" name="difficulty" value="5">5<br>
-        Notes: <textarea name="notes"></textarea><br>
-        <input type="submit" value="Submit">
-    </form>
+<h2>Share Your Relaxation Techniques and Wellness Practices</h2>
 
-    <h2>Edit/Delete Entries</h2>
-    <?php
-    // Fetching and displaying entries from the database
-    $sql = "SELECT * FROM relaxation_entries WHERE user_id = '{$_SESSION['user_id']}'";
-    $result = $conn->query($sql);
+<?php
+// Include db_connect.php
+include 'db_connect.php';
 
-    if ($result->num_rows > 0) {
-        echo "<ul>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<li>";
-            echo "<strong>Yoga Practice:</strong> " . $row['yoga'] . "<br>";
-            echo "<strong>Favorite Relaxation Idea:</strong> " . $row['favorite'] . "<br>";
-            echo "<strong>Essential Oils:</strong> " . $row['oils'] . "<br>";
-            echo "<strong>Difficulty:</strong> " . $row['difficulty'] . "<br>";
-            echo "<strong>Notes:</strong> " . $row['notes'] . "<br>";
-            echo "<strong>Date:</strong> " . $row['date'] . "<br>";
-            // Add edit and delete links/buttons
-            echo "<a href='edit.php?id=" . $row['id'] . "'>Edit</a> | ";
-            echo "<a href='delete.php?id=" . $row['id'] . "'>Delete</a>";
-            echo "</li>";
-        }
-        echo "</ul>";
+// Function to display the form for adding a new relaxation technique
+function displayAddForm() {
+    global $is_loggedin;
+    // Check if the user is logged in
+    if ($is_loggedin) {
+        // If logged in, display the form
+        ?>
+        <form method="post" action="components/db_connect.php">
+            <label for="user_id">User ID:</label><br>
+            <input type="number" id="user_id" name="user_id" required><br><br>
+
+            <label for="yoga_pose">Yoga Pose:</label><br>
+            <select id="yoga_pose" name="yoga_pose" required>
+                <option value="Balasana">Balasana</option>
+                <option value="Cat Pose">Cat Pose</option>
+                <option value="Supine Twist">Supine Twist</option>
+                <option value="Cow Pose">Cow Pose</option>
+            </select><br><br>
+
+            <label for="favorite_idea">Favorite Relaxation Idea:</label><br>
+            <select id="favorite_idea" name="favorite_idea" required>
+                <option value="Focus on your breathing">Focus on your breathing</option>
+                <option value="Spend time in nature">Spend time in nature</option>
+                <option value="Picture yourself somewhere serene">Picture yourself somewhere serene</option>
+                <option value="Listen to music">Listen to music</option>
+            </select><br><br>
+
+            <label for="oil_fragrance">Essential Oils Fragrance:</label><br>
+            <select id="oil_fragrance" name="oil_fragrance" required>
+                <option value="Clary Sage">Clary Sage</option>
+                <option value="Sandalwood">Sandalwood</option>
+                <option value="Lavender">Lavender</option>
+                <option value="Roman Chamomile">Roman Chamomile</option>
+            </select><br><br>
+
+            <label for="difficulty">Difficulty:</label><br>
+            <input type="radio" id="easy" name="difficulty" value="easy" required>
+            <label for="easy">Easy</label><br>
+            <input type="radio" id="medium" name="difficulty" value="medium">
+            <label for="medium">Medium</label><br>
+            <input type="radio" id="hard" name="difficulty" value="hard">
+            <label for="hard">Hard</label><br><br>
+
+            <label for="notes">Notes:</label><br>
+            <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+        <?php
     } else {
-        echo "No entries found.";
+        // If not logged in, redirect to the login page
+        header("Location: login.php"); // Replace 'login.php' with the actual URL of your login page
+        exit(); // Terminate the script to prevent further execution
     }
-    ?>
+}
 
+// Function to display the table of relaxation techniques
+function displayTechniquesTable() {
+    // Display your table here
+}
 
+// Display the techniques table
+displayTechniquesTable();
+
+// Display the add form
+displayAddForm();
+?>
+
+</body>
+</html>
