@@ -51,7 +51,7 @@ function displayAddForm() {
         <?php
     } else {
         // If not logged in, redirect to the login page
-        header("Location: login.php"); // Replace 'login.php' with the actual URL of your login page
+        header("Location: login.php"); 
         exit(); // Terminate the script to prevent further execution
     }
 }
