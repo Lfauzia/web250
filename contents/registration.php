@@ -57,50 +57,53 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="registraction-form"> <!-- Set action to the same page -->
         <small class="message">
             <?php
-                
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                    $_SESSION["successMessage"] = 'Account created successfully.';
-                    // No need to redirect, the success message will be displayed on the same page
-                    header("Location: ".$_SERVER['PHP_SELF']);
-                    exit;
-
-
-                    // include 'components/db_connect.php';
-
-                    $fname = $_POST['fname'];
-                    $lname = $_POST['lname'];
-                    $email = $_POST['email'];
+                if (isset($_POST["submit"])) {
+                    $fname = $_POST["fname"];
+                    $lname = $_POST["lname"];
+                    $email = $_POST["email"];
                     $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $confirmpassword = $_POST['confirmpassword'];
-                    if ($password != $confirmpassword) {
-                        echo 'Passwords do not match. ';
-                    } elseif (strlen($password) < 6) {
-                        echo 'Password must be at least 6 characters. ';
-                    } elseif (!preg_match('/^[a-zA-Z0-9]+$/', $username)) {
-                        echo 'Username must contain only letters and numbers. ';
-                    } elseif (strlen($username) > 15) {
-                        echo 'Username must be 15 characters or less. ';
-                    } else {
-                        $query = $mysqli->prepare("SELECT * FROM account WHERE username = ?");
-                        $query->bind_param('s', $username);
-                        $query->execute();
-                        $result = $query->get_result();
-                        if ($result->num_rows > 0) {
-                            echo 'Username already exists. ';
-                        } else {
-                            $password = password_hash($password, PASSWORD_DEFAULT);
-                            $query = $mysqli->prepare("INSERT INTO account (username, password, email, fname, lname) VALUES (?, ?, ?, ?, ?)");
-                            $query->bind_param('sssss', $username, $password, $email, $fname, $lname);
-                            $query->execute();
-                            $_SESSION["username"] = $username;
-                            // No need to redirect, the success message will be displayed on the same page
-                            header("Location: ".$_SERVER['PHP_SELF']);
-                            exit;
-                        }
+                    $password = $_POST["password"];
+                    $confirmpassword = $_POST["confirmpassword"];
+                    
+                    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+         
+                    $errors = array();
+                    
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                     array_push($errors, "Email is not valid");
                     }
-                }
+                    if (strlen($password)<8) {
+                     array_push($errors,"Password must be at least 8 charactes long");
+                    }
+                    if ($password!==$confirmpassword) {
+                     array_push($errors,"Password does not match");
+                    }
+                    require_once "../components/db_connect.php";
+                    $sql = "SELECT * FROM users WHERE email = '$email'";
+                    $result = mysqli_query($conn, $sql);
+                    $rowCount = mysqli_num_rows($result);
+                    if ($rowCount>0) {
+                     array_push($errors,"User already exists!");
+                    }
+                    if (count($errors)>0) {
+                     foreach ($errors as  $error) {
+                         echo "<div class='alert alert-danger'>$error</div>";
+                     }
+                    }else{
+                     
+                     $sql = "INSERT INTO users (firstname, lastname, email, username, password) VALUES ( ?, ?, ?, ?, ? )";
+                     $stmt = mysqli_stmt_init($conn);
+                     $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+                     if ($prepareStmt) {
+                         mysqli_stmt_bind_param($stmt,"sssss",$fname, $lname,  $email, $username, $passwordHash);
+                         mysqli_stmt_execute($stmt);
+                         echo "<div class='alert alert-success'>You are registered successfully.</div>";
+                     }else{
+                         die("Something went wrong");
+                     }
+                    }
+                   
+                 }
             ?>
         </small>
 

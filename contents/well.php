@@ -7,6 +7,11 @@ session_start();
 
 $is_loggedin = isset($_SESSION['username']);
 
+// Initialize sample data array if not already set in session
+if (!isset($_SESSION['sample_data'])) {
+    $_SESSION['sample_data'] = array();
+}
+
 // Function to display the form for adding a new relaxation technique
 function displayAddForm() {
     global $is_loggedin;
@@ -14,7 +19,7 @@ function displayAddForm() {
     if ($is_loggedin) {
         // If logged in, display the form
         ?>
-        <form action="index.php?page=process_form" method="post">
+        <form action="index.php?page=well" method="post">
             <label for="yoga">Yoga Pose:</label>
             <select id="yoga" name="yoga" required>
                 <option value="Balasana">Balasana</option>
@@ -46,7 +51,7 @@ function displayAddForm() {
             <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br>
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required><br><br>
-            <input type="submit" value="Add Technique">
+            <input type="submit" name="add_technique" value="Add Technique">
         </form>
         <?php
     } else {
@@ -58,7 +63,7 @@ function displayAddForm() {
 
 // Function to display the table of relaxation techniques
 function displayTechniquesTable() {
-    global $is_loggedin;
+    global $is_loggedin, $sample_data;
     ?>
     <?php if ($is_loggedin): ?>
         <?php displayAddForm(); ?>
@@ -81,13 +86,8 @@ function displayTechniquesTable() {
         </thead>
         <tbody>
             <?php
-            // Sample data to mimic what others have already input
-            $sample_data = array(
-                array(123, 'Balasana', 'Focus on your breathing', 'Lavender', 'Easy', 'This changed my life', '2024-04-20'),
-                array(456, 'Cat Pose', 'Spend time in nature', 'Sandalwood', 'Medium', 'Practice this, you will feel revived', '2024-04-21'),
-                array(243, 'Cow Pose', 'Spend time in nature', 'Lavender', 'Easy', 'Moo energy and tranquility', '2024-04-22')
-
-            );
+            // Retrieve sample data from session
+            $sample_data = $_SESSION['sample_data'];
             foreach ($sample_data as $row) {
                 echo "<tr>";
                 foreach ($row as $value) {
@@ -99,6 +99,21 @@ function displayTechniquesTable() {
         </tbody>
     </table>
 <?php
+}
+
+// Add new technique to sample data if form submitted
+if (isset($_POST['add_technique'])) {
+    $new_technique = array(
+        $_SESSION['user_id'],
+        $_POST['yoga'],
+        $_POST['favorite'],
+        $_POST['oil'],
+        $_POST['difficulty'],
+        $_POST['notes'],
+        $_POST['date']
+    );
+    // Append the new technique to the end of the sample_data array in session
+    $_SESSION['sample_data'][] = $new_technique;
 }
 
 // Display the techniques table
