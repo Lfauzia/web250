@@ -1,12 +1,12 @@
 <?php
 // Database connection parameters
 $servername = "localhost";
-$username = "test";
-$password = "test";
+$username = "root";
+$password = "";
 $database = "relaxation_techniques_db";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
@@ -24,7 +24,7 @@ if ($conn->query($sql_create_db) === TRUE) {
 // Select database
 $conn->select_db($database);
 
-// Create relaxation_techniques table
+//Create relaxation_techniques table
 $sql_create_table = "CREATE TABLE IF NOT EXISTS practices (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     yoga_pose VARCHAR(50) NOT NULL,
@@ -35,11 +35,19 @@ $sql_create_table = "CREATE TABLE IF NOT EXISTS practices (
     date DATE
 )";
 
-// if ($conn->query($sql_create_table) === TRUE) {
-//     echo "Table practices created successfully";
-// } else {
-//     echo "Error creating table: " . $conn->error;
-// }
+// Create user_accounts table
+$sql_create_account_table = "CREATE TABLE IF NOT EXISTS users (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(128) NOT NULL,
+    lastname VARCHAR(128) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(128) NOT NULL,
+    password VARCHAR(255) NOT NULL
+)";
+
+
+
+
 
 // Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
