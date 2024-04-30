@@ -39,7 +39,6 @@
                 echo ' href="../index.php?page=registration">REGISTER</a>';
             }
         ?>
-
     </nav> 
 </header><br>
 
@@ -56,8 +55,7 @@
     <?php endif; ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="registraction-form"> <!-- Set action to the same page -->
         <small class="message">
-            <?php
-                
+            <?php               
                 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     $_SESSION["successMessage"] = 'Account created successfully.';
@@ -74,16 +72,18 @@
                     $username = $_POST['username'];
                     $password = $_POST['password'];
                     $confirmpassword = $_POST['confirmpassword'];
+
+
                     if ($password != $confirmpassword) {
                         echo 'Passwords do not match. ';
                     } elseif (strlen($password) < 6) {
                         echo 'Password must be at least 6 characters. ';
                     } elseif (!preg_match('/^[a-zA-Z0-9]+$/', $username)) {
                         echo 'Username must contain only letters and numbers. ';
-                    } elseif (strlen($username) > 15) {
+                    } elseif (strlen($username) > 8) {
                         echo 'Username must be 15 characters or less. ';
                     } else {
-                        $query = $mysqli->prepare("SELECT * FROM account WHERE username = ?");
+                        $query = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
                         $query->bind_param('s', $username);
                         $query->execute();
                         $result = $query->get_result();
@@ -91,7 +91,7 @@
                             echo 'Username already exists. ';
                         } else {
                             $password = password_hash($password, PASSWORD_DEFAULT);
-                            $query = $mysqli->prepare("INSERT INTO account (username, password, email, fname, lname) VALUES (?, ?, ?, ?, ?)");
+                            $query = $mysqli->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (?, ?, ?, ?, ?)");
                             $query->bind_param('sssss', $username, $password, $email, $fname, $lname);
                             $query->execute();
                             $_SESSION["username"] = $username;
