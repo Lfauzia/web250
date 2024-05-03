@@ -4,13 +4,14 @@
 
 <?php
 session_start();
+include '../components/db_connect.php';
 
 $is_loggedin = isset($_SESSION['username']);
 
 // Initialize sample data array if not already set in session
-if (!isset($_SESSION['sample_data'])) {
-    $_SESSION['sample_data'] = array();
-}
+// if (!isset($_SESSION['sample_data'])) {
+//     $_SESSION['sample_data'] = array();
+// }
 
 // Function to display the form for adding a new relaxation technique
 function displayAddForm() {
@@ -63,7 +64,7 @@ function displayAddForm() {
 
 // Function to display the table of relaxation techniques
 function displayTechniquesTable() {
-    global $is_loggedin, $sample_data;
+    global $is_loggedin, $conn;
     ?>
     <?php if ($is_loggedin): ?>
         <?php displayAddForm(); ?>
@@ -86,34 +87,67 @@ function displayTechniquesTable() {
         </thead>
         <tbody>
             <?php
-            // Retrieve sample data from session
-            $sample_data = $_SESSION['sample_data'];
-            foreach ($sample_data as $row) {
-                echo "<tr>";
-                foreach ($row as $value) {
-                    echo "<td style='padding: 8px; border: 1px solid #000;'>$value</td>";
+                $my_user = $_SESSION['username'];
+                // require_once '../components/db_connect.php';
+                // Retrieve user_id from user table
+                $sql = "SELECT * FROM users WHERE username = '$my_user'";
+                $result = mysqli_query($conn, $sql);
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $user_id = $user["id"];
+                echo"$user_id ";
+            
+                // Query to retrieve user's relaxation techniques from the database
+                $sql_select = "SELECT * FROM practices WHERE id = '$user_id'";
+                $result = $conn->query($sql_select);
+
+                if( $result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        // Display each column value
+                        // Adjust column names according to your database structure
+                        echo "<td>{$row['user_id']}</td>";
+                        echo "<td>{$row['yoga_pose']}</td>";
+                        echo "<td>{$row['favorite_idea']}</td>";
+                        echo "<td>{$row['oil_fragrance']}</td>";
+                        echo "<td>{$row['difficulty']}</td>";
+                        echo "<td>{$row['notes']}</td>";
+                        echo "<td>{$row['date']}</td>";
+                        echo "</tr>";
+                    }
+                }else {
+                    echo "<p>No relaxation techniques found.</p>";
                 }
-                echo "</tr>";
             }
             ?>
         </tbody>
     </table>
-<?php
-}
+            
 
-// Add new technique to sample data if form submitted
+<?php
+// Process form submission to add a new technique
 if (isset($_POST['add_technique'])) {
-    $new_technique = array(
-        $_SESSION['user_id'],
-        $_POST['yoga'],
-        $_POST['favorite'],
-        $_POST['oil'],
-        $_POST['difficulty'],
-        $_POST['notes'],
-        $_POST['date']
-    );
-    // Append the new technique to the end of the sample_data array in session
-    $_SESSION['sample_data'][] = $new_technique;
+    echo"$yoga_pose";
+    require_once '../components/db_connect.php';
+    $yoga_pose = $_POST['yoga'];
+    $favorite_idea = $_POST['favorite'];
+    $oil_fragrance = $_POST['oil'];
+    $difficulty = $_POST['difficulty'];
+    $notes = $_POST['notes'];
+    $date = $_POST['date'];
+
+    // Insert data into the database
+    $sql_insert = "INSERT INTO practices (yoga_pose, favorite_idea, oil_fragrance, difficulty, notes, date)
+            VALUES ( ?, ?, ?, ?, ?, ? )";
+    
+    $stmt = mysqli_stmt_init($conn);
+    $prepareStmt = mysqli_stmt_prepare($stmt,$sql_insert);
+    if ($prepareStmt) {
+        mysqli_stmt_bind_param($stmt,"ssssss",$yoga_pose, $favorite_idea,  $oil_fragrance, $difficulty, $notes, $date);
+        mysqli_stmt_execute($stmt);
+        echo "<div class='alert alert-success'>New record created successfully.</div>";
+    }else{
+        die("Something went wrong");
+    }
 }
 
 // Display the techniques table

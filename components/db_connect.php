@@ -1,24 +1,16 @@
 <?php
 // Database connection parameters
 $servername = "localhost";
-$username = "root";
-$password = "";
+$dbuser = "root";
+$dbpassword = "";
 $database = "relaxation_techniques_db";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysqli_connect($servername, $dbuser, $dbpassword, $database);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-}
-
-// // Create database
-$sql_create_db = "CREATE DATABASE IF NOT EXISTS $database";
-if ($conn->query($sql_create_db) === TRUE) {
-    echo "Database created successfully";
-} else {
-    echo "Error creating database: " . $conn->error;
 }
 
 // Select database

@@ -24,7 +24,7 @@
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'brand') echo 'class="active"'; ?> href="../index.php?page=brand">BRAND</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'fizz') echo 'class="active"'; ?> href="../index.php?page=fizz">FIZZ</a>
         <a <?php if(isset($_GET['page']) && $_GET['page'] == 'forms') echo 'class="active"'; ?> href="../index.php?page=forms">FORMS</a>
-        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'well') echo 'class="active"'; ?> href="..index.php?page=well">WELL</a>
+        <a <?php if(isset($_GET['page']) && $_GET['page'] == 'well') echo 'class="active"'; ?> href="../index.php?page=well">WELL</a>
 
         <?php
             if(!isset($_SESSION["username"])) {
@@ -61,7 +61,7 @@
                     $fname = $_POST["fname"];
                     $lname = $_POST["lname"];
                     $email = $_POST["email"];
-                    $username = $_POST['username'];
+                    $user_name = $_POST['username'];
                     $password = $_POST["password"];
                     $confirmpassword = $_POST["confirmpassword"];
                     
@@ -72,8 +72,8 @@
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                      array_push($errors, "Email is not valid");
                     }
-                    if (strlen($password)<8) {
-                     array_push($errors,"Password must be at least 8 charactes long");
+                    if (strlen($password)<6) {
+                     array_push($errors,"Password must be at least 6 charactes long");
                     }
                     if ($password!==$confirmpassword) {
                      array_push($errors,"Password does not match");
@@ -95,7 +95,7 @@
                      $stmt = mysqli_stmt_init($conn);
                      $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
                      if ($prepareStmt) {
-                         mysqli_stmt_bind_param($stmt,"sssss",$fname, $lname,  $email, $username, $passwordHash);
+                         mysqli_stmt_bind_param($stmt,"sssss",$fname, $lname,  $email, $user_name, $passwordHash);
                          mysqli_stmt_execute($stmt);
                          echo "<div class='alert alert-success'>You are registered successfully.</div>";
                      }else{
@@ -108,38 +108,26 @@
         </small>
 
         <div class="form-group">
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required>
-        </div>
-
-        <div class="form-group">
-            <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="15 chars max; only letters and numbers" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="must be 6 characters" required>
-            <!-- Password strength indicator -->
-            <div id="password-strength"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="confirmpassword">Confirm Password:</label>
-            <input type="password" id="confirmpassword" name="confirmpassword" required>
-        </div>
-
-        <button type="submit" class="btn-register">Register</button>
+                <input type="text" class="form-control" name="fname" placeholder="First Name:">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="lname" placeholder="Last Name:">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email:">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="UserName:">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password:">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password:">
+            </div>
+            <div class="form-btn">
+                <input type="submit" class="btn btn-primary" value="Register" name="submit">
+            </div>
     </form>
 </main> <br>
 <footer>                                                
