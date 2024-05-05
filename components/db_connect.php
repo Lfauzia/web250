@@ -1,8 +1,8 @@
 <?php
 // Database connection parameters
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "test";
+$password = "test";
 $database = "relaxation_techniques_db";
 
 // Create connection
@@ -70,6 +70,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql_insert . "<br>" . $conn->error;
     }
 }
+
+    // Process form submission for user registration
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_registration'])) {
+    // Retrieve form data
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password']; // Note: You should hash the password for security purposes before storing it in the database.
+
+
+    //hash password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+    // Insert data into the users table
+    $sql_insert_user = "INSERT INTO users (firstname, lastname, email, username, password)
+            VALUES ('$firstname', '$lastname', '$email', '$username', '$hashed_password')";
+
+    if ($conn->query($sql_insert_user) === TRUE) {
+        echo "<p>New user registered successfully</p>";
+    } else {
+        echo "Error: " . $sql_insert_user . "<br>" . $conn->error;
+    }
+}
+
+
 
 $conn->close();
 ?>
