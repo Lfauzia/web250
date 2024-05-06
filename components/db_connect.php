@@ -1,24 +1,16 @@
 <?php
 // Database connection parameters
 $servername = "localhost";
-$username = "test";
-$password = "test";
+$dbuser = "root";
+$dbpassword = "";
 $database = "relaxation_techniques_db";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = mysqli_connect($servername, $dbuser, $dbpassword, $database);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-}
-
-// Create database
-$sql_create_db = "CREATE DATABASE IF NOT EXISTS $database";
-if ($conn->query($sql_create_db) === TRUE) {
-    echo "Database created successfully";
-} else {
-    echo "Error creating database: " . $conn->error;
 }
 
 // Select database
@@ -45,57 +37,41 @@ $sql_create_account_table = "CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL
 )";
 
+$errors = [];
+$tables = [$sql_create_account_table, $sql_create_table];
 
-
-
-
-// Process form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $user_id = $_POST['user_id'];
-    $yoga_pose = $_POST['yoga_pose'];
-    $favorite_idea = $_POST['favorite_idea'];
-    $oil_fragrance = $_POST['oil_fragrance'];
-    $difficulty = $_POST['difficulty'];
-    $notes = $_POST['notes'];
-    $date = date('Y-m-d');
-
-    // Insert data into the relaxation techniques table
-    $sql_insert = "INSERT INTO practices (id, yoga_pose, favorite_idea, oil_fragrance, difficulty, notes, date)
-            VALUES ('$id', '$yoga_pose', '$favorite_idea', '$oil_fragrance', '$difficulty', '$notes', '$date')";
-
-    if ($conn->query($sql_insert) === TRUE) {
-        echo "<p>New record created successfully</p>";
-    } else {
-        echo "Error: " . $sql_insert . "<br>" . $conn->error;
-    }
+foreach($tables as $k => $sql){
+    $query = @$conn->query($sql);
+    if(!$query)
+       $errors[] = "Table $k : Creation failed ($conn->error)";
 }
 
-    // Process form submission for user registration
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_registration'])) {
-    // Retrieve form data
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['password']; // Note: You should hash the password for security purposes before storing it in the database.
+foreach($errors as $msg) {
+    echo "$msg <br>";
+ }
 
 
-    //hash password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    
-    // Insert data into the users table
-    $sql_insert_user = "INSERT INTO users (firstname, lastname, email, username, password)
-            VALUES ('$firstname', '$lastname', '$email', '$username', '$hashed_password')";
+// // Process form submission
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Retrieve form data
+//     $user_id = $_POST['user_id'];
+//     $yoga_pose = $_POST['yoga_pose'];
+//     $favorite_idea = $_POST['favorite_idea'];
+//     $oil_fragrance = $_POST['oil_fragrance'];
+//     $difficulty = $_POST['difficulty'];
+//     $notes = $_POST['notes'];
+//     $date = date('Y-m-d');
 
-    if ($conn->query($sql_insert_user) === TRUE) {
-        echo "<p>New user registered successfully</p>";
-    } else {
-        echo "Error: " . $sql_insert_user . "<br>" . $conn->error;
-    }
-}
+//     // Insert data into the relaxation techniques table
+//     $sql_insert = "INSERT INTO practices (id, yoga_pose, favorite_idea, oil_fragrance, difficulty, notes, date)
+//             VALUES ('$id', '$yoga_pose', '$favorite_idea', '$oil_fragrance', '$difficulty', '$notes', '$date')";
 
+//     if ($conn->query($sql_insert) === TRUE) {
+//         echo "<p>New record created successfully</p>";
+//     } else {
+//         echo "Error: " . $sql_insert . "<br>" . $conn->error;
+//     }
+// }
 
-
-$conn->close();
+// $conn->close();
 ?>
