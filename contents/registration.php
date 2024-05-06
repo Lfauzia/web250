@@ -39,6 +39,7 @@
                 echo ' href="../index.php?page=registration">REGISTER</a>';
             }
         ?>
+
     </nav> 
 </header><br>
 
@@ -55,88 +56,78 @@
     <?php endif; ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" id="registraction-form"> <!-- Set action to the same page -->
         <small class="message">
-            <?php               
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                    $_SESSION["successMessage"] = 'Account created successfully.';
-                    // No need to redirect, the success message will be displayed on the same page
-                    header("Location: ".$_SERVER['PHP_SELF']);
-                    exit;
-
-
-                    // include 'components/db_connect.php';
-
-                    $fname = $_POST['fname'];
-                    $lname = $_POST['lname'];
-                    $email = $_POST['email'];
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $confirmpassword = $_POST['confirmpassword'];
-
-
-                    if ($password != $confirmpassword) {
-                        echo 'Passwords do not match. ';
-                    } elseif (strlen($password) < 6) {
-                        echo 'Password must be at least 6 characters. ';
-                    } elseif (!preg_match('/^[a-zA-Z0-9]+$/', $username)) {
-                        echo 'Username must contain only letters and numbers. ';
-                    } elseif (strlen($username) > 8) {
-                        echo 'Username must be 15 characters or less. ';
-                    } else {
-                        $query = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
-                        $query->bind_param('s', $username);
-                        $query->execute();
-                        $result = $query->get_result();
-                        if ($result->num_rows > 0) {
-                            echo 'Username already exists. ';
-                        } else {
-                            $password = password_hash($password, PASSWORD_DEFAULT);
-                            $query = $mysqli->prepare("INSERT INTO users (username, password, email, fname, lname) VALUES (?, ?, ?, ?, ?)");
-                            $query->bind_param('sssss', $username, $password, $email, $fname, $lname);
-                            $query->execute();
-                            $_SESSION["username"] = $username;
-                            // No need to redirect, the success message will be displayed on the same page
-                            header("Location: ".$_SERVER['PHP_SELF']);
-                            exit;
-                        }
+            <?php
+                if (isset($_POST["submit"])) {
+                    $fname = $_POST["fname"];
+                    $lname = $_POST["lname"];
+                    $email = $_POST["email"];
+                    $user_name = $_POST['username'];
+                    $password = $_POST["password"];
+                    $confirmpassword = $_POST["confirmpassword"];
+                    
+                    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+         
+                    $errors = array();
+                    
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                     array_push($errors, "Email is not valid");
                     }
-                }
+                    if (strlen($password)<6) {
+                     array_push($errors,"Password must be at least 6 charactes long");
+                    }
+                    if ($password!==$confirmpassword) {
+                     array_push($errors,"Password does not match");
+                    }
+                    require_once "../components/db_connect.php";
+                    $sql = "SELECT * FROM users WHERE email = '$email'";
+                    $result = mysqli_query($conn, $sql);
+                    $rowCount = mysqli_num_rows($result);
+                    if ($rowCount>0) {
+                     array_push($errors,"User already exists!");
+                    }
+                    if (count($errors)>0) {
+                     foreach ($errors as  $error) {
+                         echo "<div class='alert alert-danger'>$error</div>";
+                     }
+                    }else{
+                     
+                     $sql = "INSERT INTO users (firstname, lastname, email, username, password) VALUES ( ?, ?, ?, ?, ? )";
+                     $stmt = mysqli_stmt_init($conn);
+                     $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+                     if ($prepareStmt) {
+                         mysqli_stmt_bind_param($stmt,"sssss",$fname, $lname,  $email, $user_name, $passwordHash);
+                         mysqli_stmt_execute($stmt);
+                         echo "<div class='alert alert-success'>You are registered successfully.</div>";
+                     }else{
+                         die("Something went wrong");
+                     }
+                    }
+                   
+                 }
             ?>
         </small>
 
         <div class="form-group">
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required>
-        </div>
-
-        <div class="form-group">
-            <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="15 chars max; only letters and numbers" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="must be 6 characters" required>
-            <!-- Password strength indicator -->
-            <div id="password-strength"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="confirmpassword">Confirm Password:</label>
-            <input type="password" id="confirmpassword" name="confirmpassword" required>
-        </div>
-
-        <button type="submit" class="btn-register">Register</button>
+                <input type="text" class="form-control" name="fname" placeholder="First Name:">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="lname" placeholder="Last Name:">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email:">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="UserName:">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password:">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password:">
+            </div>
+            <div class="form-btn">
+                <input type="submit" class="btn btn-primary" value="Register" name="submit">
+            </div>
     </form>
 </main> <br>
 <footer>                                                
