@@ -7,7 +7,7 @@
             
     <ul>
         <li>
-        <strong>Personal Background:</strong> I grew up in the DRC and moved
+        <strong>Personal Background:</strong> I moved
         to Charlotte for some time now and since then, it has become my home.
         </li>
         <li>
