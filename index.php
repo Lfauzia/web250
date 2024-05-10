@@ -14,7 +14,7 @@ if (isset($_SESSION['username'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Laura Fauzia || Legendary Fox || WEB250 || Home</title>
+    <title>Laura|| Legendary Fox || WEB250 || Home</title>
     <link rel="stylesheet" href="styles/default.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <header>
-        <h1>Laura Fauzia's Legendary Fox || WEB250</h1>
+        <h1>Laura's Legendary Fox || WEB250</h1>
         <nav>
             <a <?php if (isset($_GET['page']) && $_GET['page'] == 'home') echo 'class="active"'; ?> href="index.php?page=home">HOME</a>
             <a <?php if (isset($_GET['page']) && $_GET['page'] == 'introduction') echo 'class="active"'; ?> href="index.php?page=introduction">INTRODUCTION</a>
