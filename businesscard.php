@@ -91,7 +91,7 @@
 
 <div class="card">
     <div class="card-border"></div>
-    <h1>Laura Fauzia</h1>
+    <h1>Laura F.</h1>
     <p>Full Stack Programmer</p>
     <div class="contact-info">
         <p>Email: lnkazan0@email.cpcc.edu</p>
